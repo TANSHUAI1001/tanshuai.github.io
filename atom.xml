@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tanshuai1001.github.io/"/>
-  <updated>2018-05-13T15:57:10.263Z</updated>
+  <updated>2018-05-13T16:02:47.070Z</updated>
   <id>https://tanshuai1001.github.io/</id>
   
   <author>
@@ -17,19 +17,22 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>mysql_user_privileges</title>
+    <title>mysql新建数据库和归属用户</title>
     <link href="https://tanshuai1001.github.io/2018/05/13/mysql-user-privileges/"/>
     <id>https://tanshuai1001.github.io/2018/05/13/mysql-user-privileges/</id>
     <published>2018-05-13T15:52:44.000Z</published>
-    <updated>2018-05-13T15:57:10.263Z</updated>
+    <updated>2018-05-13T16:02:47.070Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="mysql新建数据库和归属用户"><a href="#mysql新建数据库和归属用户" class="headerlink" title="mysql新建数据库和归属用户"></a>mysql新建数据库和归属用户</h1><p>在服务器上经常用mysql作不同用途，每个用途新建一个database和对应用户将访问权限分离开是良好的习惯。快速而方便地创建MySQL用户和数据库的语句：</p><ol><li>创建数据库</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE databasename;</span><br></pre></td></tr></table></figure><ol><li><p>把数据库的所有权限归属到对应host下的用户并设置密码</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GRANT ALL PRIVILEGES ON databasename.* TO </span><br><span class="line">&quot;username&quot;@&quot;hostname&quot; IDENTIFIED BY &quot;password&quot;;</span><br></pre></td></tr></table></figure></li><li><p>FLUSH清除或者重新加载内部缓存，使权限生效</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    <content type="html"><![CDATA[<p>在服务器上经常用mysql作不同用途，每个用途新建一个database和对应用户将访问权限分离开是良好的习惯。快速而方便地创建MySQL用户和数据库的语句：</p><ol><li><p>创建数据库</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE databasename;</span><br></pre></td></tr></table></figure></li><li><p>把数据库的所有权限归属到对应host下的用户并设置密码</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GRANT ALL PRIVILEGES ON databasename.* TO </span><br><span class="line">&quot;username&quot;@&quot;hostname&quot; IDENTIFIED BY &quot;password&quot;;</span><br></pre></td></tr></table></figure></li><li><p>FLUSH清除或者重新加载内部缓存，使权限生效</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure></li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;mysql新建数据库和归属用户&quot;&gt;&lt;a href=&quot;#mysql新建数据库和归属用户&quot; class=&quot;headerlink&quot; title=&quot;mysql新建数据库和归属用户&quot;&gt;&lt;/a&gt;mysql新建数据库和归属用户&lt;/h1&gt;&lt;p&gt;在服务器上经常用mysql作不同用途
+        &lt;p&gt;在服务器上经常用mysql作不同用途，每个用途新建一个database和对应用户将访问权限分离开是良好的习惯。快速而方便地创建MySQL用户和数据库的语句：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;创建数据库&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;
       
     
     </summary>
@@ -42,9 +45,9 @@
     <link href="https://tanshuai1001.github.io/2018/03/04/hello-world/"/>
     <id>https://tanshuai1001.github.io/2018/03/04/hello-world/</id>
     <published>2018-03-04T09:20:13.508Z</published>
-    <updated>2018-03-04T08:29:20.744Z</updated>
+    <updated>2018-05-13T16:02:16.645Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server -p 5000</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
     
     <summary type="html">
     

@@ -5,19 +5,19 @@
   
 
   
-  <title>mysql_user_privileges | SHuai&#39;s journal</title>
+  <title>mysql新建数据库和归属用户 | SHuai&#39;s journal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="mysql新建数据库和归属用户在服务器上经常用mysql作不同用途，每个用途新建一个database和对应用户将访问权限分离开是良好的习惯。快速而方便地创建MySQL用户和数据库的语句：  创建数据库  1CREATE DATABASE databasename;  把数据库的所有权限归属到对应host下的用户并设置密码 12GRANT ALL PRIVILEGES ON databasename">
+  <meta name="description" content="在服务器上经常用mysql作不同用途，每个用途新建一个database和对应用户将访问权限分离开是良好的习惯。快速而方便地创建MySQL用户和数据库的语句：  创建数据库 1CREATE DATABASE databasename;  把数据库的所有权限归属到对应host下的用户并设置密码 12GRANT ALL PRIVILEGES ON databasename.* TO &amp;quot;user">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mysql_user_privileges">
+<meta property="og:title" content="mysql新建数据库和归属用户">
 <meta property="og:url" content="https://tanshuai1001.github.io/2018/05/13/mysql-user-privileges/index.html">
 <meta property="og:site_name" content="SHuai&#39;s journal">
-<meta property="og:description" content="mysql新建数据库和归属用户在服务器上经常用mysql作不同用途，每个用途新建一个database和对应用户将访问权限分离开是良好的习惯。快速而方便地创建MySQL用户和数据库的语句：  创建数据库  1CREATE DATABASE databasename;  把数据库的所有权限归属到对应host下的用户并设置密码 12GRANT ALL PRIVILEGES ON databasename">
+<meta property="og:description" content="在服务器上经常用mysql作不同用途，每个用途新建一个database和对应用户将访问权限分离开是良好的习惯。快速而方便地创建MySQL用户和数据库的语句：  创建数据库 1CREATE DATABASE databasename;  把数据库的所有权限归属到对应host下的用户并设置密码 12GRANT ALL PRIVILEGES ON databasename.* TO &amp;quot;user">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2018-05-13T15:57:10.263Z">
+<meta property="og:updated_time" content="2018-05-13T16:02:47.070Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mysql_user_privileges">
-<meta name="twitter:description" content="mysql新建数据库和归属用户在服务器上经常用mysql作不同用途，每个用途新建一个database和对应用户将访问权限分离开是良好的习惯。快速而方便地创建MySQL用户和数据库的语句：  创建数据库  1CREATE DATABASE databasename;  把数据库的所有权限归属到对应host下的用户并设置密码 12GRANT ALL PRIVILEGES ON databasename">
+<meta name="twitter:title" content="mysql新建数据库和归属用户">
+<meta name="twitter:description" content="在服务器上经常用mysql作不同用途，每个用途新建一个database和对应用户将访问权限分离开是良好的习惯。快速而方便地创建MySQL用户和数据库的语句：  创建数据库 1CREATE DATABASE databasename;  把数据库的所有权限归属到对应host下的用户并设置密码 12GRANT ALL PRIVILEGES ON databasename.* TO &amp;quot;user">
   
     <link rel="alternate" href="/atom.xml" title="SHuai&#39;s journal" type="application/atom+xml">
   
@@ -59,7 +59,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://tanshuai1001.github.io"></form>
@@ -82,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      mysql_user_privileges
+      mysql新建数据库和归属用户
     </h1>
   
 
@@ -90,12 +90,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="mysql新建数据库和归属用户"><a href="#mysql新建数据库和归属用户" class="headerlink" title="mysql新建数据库和归属用户"></a>mysql新建数据库和归属用户</h1><p>在服务器上经常用mysql作不同用途，每个用途新建一个database和对应用户将访问权限分离开是良好的习惯。快速而方便地创建MySQL用户和数据库的语句：</p>
+        <p>在服务器上经常用mysql作不同用途，每个用途新建一个database和对应用户将访问权限分离开是良好的习惯。快速而方便地创建MySQL用户和数据库的语句：</p>
 <ol>
-<li>创建数据库</li>
-</ol>
+<li><p>创建数据库</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE databasename;</span><br></pre></td></tr></table></figure>
-<ol>
+</li>
 <li><p>把数据库的所有权限归属到对应host下的用户并设置密码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GRANT ALL PRIVILEGES ON databasename.* TO </span><br><span class="line">&quot;username&quot;@&quot;hostname&quot; IDENTIFIED BY &quot;password&quot;;</span><br></pre></td></tr></table></figure>
 </li>
@@ -106,7 +105,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://tanshuai1001.github.io/2018/05/13/mysql-user-privileges/" data-id="cjh506sme0001q8vbvez4toqw" class="article-share-link">Teilen</a>
+      <a data-url="https://tanshuai1001.github.io/2018/05/13/mysql-user-privileges/" data-id="cjh509js00000gcvbwqywrmam" class="article-share-link">Share</a>
       
       
     </footer>
@@ -117,7 +116,7 @@
   
   
     <a href="/2018/03/04/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">Hello World</div>
     </a>
   
@@ -140,7 +139,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
     </div>
@@ -150,12 +149,12 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2018/05/13/mysql-user-privileges/">mysql_user_privileges</a>
+            <a href="/2018/05/13/mysql-user-privileges/">mysql新建数据库和归属用户</a>
           </li>
         
           <li>
