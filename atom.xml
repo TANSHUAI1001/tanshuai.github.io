@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tanshuai1001.github.io/"/>
-  <updated>2018-05-13T16:02:47.070Z</updated>
+  <updated>2018-12-24T05:52:43.487Z</updated>
   <id>https://tanshuai1001.github.io/</id>
   
   <author>
@@ -17,37 +17,65 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>mysql新建数据库和归属用户</title>
-    <link href="https://tanshuai1001.github.io/2018/05/13/mysql-user-privileges/"/>
-    <id>https://tanshuai1001.github.io/2018/05/13/mysql-user-privileges/</id>
-    <published>2018-05-13T15:52:44.000Z</published>
-    <updated>2018-05-13T16:02:47.070Z</updated>
+    <title>设计模式笔记</title>
+    <link href="https://tanshuai1001.github.io/2018/12/24/design-model/"/>
+    <id>https://tanshuai1001.github.io/2018/12/24/design-model/</id>
+    <published>2018-12-24T01:37:54.000Z</published>
+    <updated>2018-12-24T05:52:43.487Z</updated>
     
-    <content type="html"><![CDATA[<p>在服务器上经常用mysql作不同用途，每个用途新建一个database和对应用户将访问权限分离开是良好的习惯。快速而方便地创建MySQL用户和数据库的语句：</p><ol><li><p>创建数据库</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE databasename;</span><br></pre></td></tr></table></figure></li><li><p>把数据库的所有权限归属到对应host下的用户并设置密码</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GRANT ALL PRIVILEGES ON databasename.* TO </span><br><span class="line">&quot;username&quot;@&quot;hostname&quot; IDENTIFIED BY &quot;password&quot;;</span><br></pre></td></tr></table></figure></li><li><p>FLUSH清除或者重新加载内部缓存，使权限生效</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    <content type="html"><![CDATA[<h1 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h1><p>根据模式的目的可分为：创建型，结构型和行为型<br><img src="/2018/12/24/design-model/outline.png" alt="概览"></p><p>JavaScript设计模式相关书籍：<a href="https://addyosmani.com/resources/essentialjsdesignpatterns/book/" target="_blank" rel="noopener">《Learning JavaScript Design Patterns》</a> by Addy Osmani</p><p>Java相关<a href="https://quanke.gitbooks.io/design-pattern-java/content/" target="_blank" rel="noopener">在线书籍</a>和<a href="https://github.com/quanke/design-pattern-java-source-code" target="_blank" rel="noopener">代码GitHub地址</a></p><h1 id="面相对象设计原则"><a href="#面相对象设计原则" class="headerlink" title="面相对象设计原则"></a>面相对象设计原则</h1><h2 id="1-开闭原则"><a href="#1-开闭原则" class="headerlink" title="1. 开闭原则"></a>1. 开闭原则</h2><p>一个软件实体应当对扩展开放，对修改关闭。即软件实体应尽量在不修改原有代码的情况下进行扩展。</p><h2 id="2-里氏替换原则"><a href="#2-里氏替换原则" class="headerlink" title="2. 里氏替换原则"></a>2. 里氏替换原则</h2><p>所有引用基类（父类）的地方必须能透明地使用其子类的对象。</p><h2 id="3-依赖转换原则"><a href="#3-依赖转换原则" class="headerlink" title="3. 依赖转换原则"></a>3. 依赖转换原则</h2><p>抽象不应该依赖于细节，细节应当依赖于抽象。</p><h2 id="4-单一职责原则"><a href="#4-单一职责原则" class="headerlink" title="4. 单一职责原则"></a>4. 单一职责原则</h2><p>一个类只负责一个功能领域中的相应职责。</p><h2 id="5-合成复用原则"><a href="#5-合成复用原则" class="headerlink" title="5. 合成复用原则"></a>5. 合成复用原则</h2><p>尽量使用对象组合，而不是继承来达到复用的目的。</p><h2 id="6-迪米特法则"><a href="#6-迪米特法则" class="headerlink" title="6. 迪米特法则"></a>6. 迪米特法则</h2><p>一个软件实体应当尽可能少地与其他实体发生相互作用。</p><h2 id="7-接口隔离原则"><a href="#7-接口隔离原则" class="headerlink" title="7. 接口隔离原则"></a>7. 接口隔离原则</h2><p>使用多个专门的接口，而不使用单一的总接口，即客户端不应该依赖那些它不需要的接口。</p><h1 id="使用频率"><a href="#使用频率" class="headerlink" title="使用频率"></a>使用频率</h1><p>高频率使用的模式: 工厂方法，抽象工厂，外观模式，迭代模式，观察者模式<br>常用使用的模式：单例模式，适配器模式，代理模式，组合模式，策略模式，命令模式</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;在服务器上经常用mysql作不同用途，每个用途新建一个database和对应用户将访问权限分离开是良好的习惯。快速而方便地创建MySQL用户和数据库的语句：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;创建数据库&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;
+        &lt;h1 id=&quot;概览&quot;&gt;&lt;a href=&quot;#概览&quot; class=&quot;headerlink&quot; title=&quot;概览&quot;&gt;&lt;/a&gt;概览&lt;/h1&gt;&lt;p&gt;根据模式的目的可分为：创建型，结构型和行为型&lt;br&gt;&lt;img src=&quot;/2018/12/24/design-model/outline.p
       
     
     </summary>
     
+      <category term="计算机软件" scheme="https://tanshuai1001.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%BD%AF%E4%BB%B6/"/>
+    
+    
+      <category term="编程" scheme="https://tanshuai1001.github.io/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="设计模式" scheme="https://tanshuai1001.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
   <entry>
-    <title>Hello World</title>
+    <title>mysql常用命令</title>
+    <link href="https://tanshuai1001.github.io/2018/05/13/mysql-user-privileges/"/>
+    <id>https://tanshuai1001.github.io/2018/05/13/mysql-user-privileges/</id>
+    <published>2018-05-13T15:52:44.000Z</published>
+    <updated>2018-12-24T05:57:44.314Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="新建数据库和归属用户"><a href="#新建数据库和归属用户" class="headerlink" title="新建数据库和归属用户"></a>新建数据库和归属用户</h1><p>在服务器上经常用mysql作不同用途，每个用途新建一个database和对应用户将访问权限分离开是良好的习惯。快速而方便地创建MySQL用户和数据库的语句：</p><ol><li>创建数据库</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE databasename;</span><br></pre></td></tr></table></figure><ol><li>把数据库的所有权限归属到对应host下的用户并设置密码</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GRANT ALL PRIVILEGES ON databasename.* TO </span><br><span class="line">&quot;username&quot;@&quot;hostname&quot; IDENTIFIED BY &quot;password&quot;;</span><br></pre></td></tr></table></figure><ol><li>FLUSH清除或者重新加载内部缓存，使权限生效</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;新建数据库和归属用户&quot;&gt;&lt;a href=&quot;#新建数据库和归属用户&quot; class=&quot;headerlink&quot; title=&quot;新建数据库和归属用户&quot;&gt;&lt;/a&gt;新建数据库和归属用户&lt;/h1&gt;&lt;p&gt;在服务器上经常用mysql作不同用途，每个用途新建一个database和对应
+      
+    
+    </summary>
+    
+      <category term="速查手册" scheme="https://tanshuai1001.github.io/categories/%E9%80%9F%E6%9F%A5%E6%89%8B%E5%86%8C/"/>
+    
+    
+      <category term="mysql" scheme="https://tanshuai1001.github.io/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo与NexT、markdown部分使用方法</title>
     <link href="https://tanshuai1001.github.io/2018/03/04/hello-world/"/>
     <id>https://tanshuai1001.github.io/2018/03/04/hello-world/</id>
     <published>2018-03-04T09:20:13.508Z</published>
-    <updated>2018-05-13T16:02:16.645Z</updated>
+    <updated>2018-12-24T05:16:16.464Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server -p 5000</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Hexo-Quick-Start-中文文档"><a href="#Hexo-Quick-Start-中文文档" class="headerlink" title="Hexo Quick Start 中文文档"></a>Hexo Quick Start <a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">中文文档</a></h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server -p 5000</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p><hr><h2 id="NexT"><a href="#NexT" class="headerlink" title="NexT"></a>NexT</h2><h2 id="图片预览插件"><a href="#图片预览插件" class="headerlink" title="图片预览插件"></a><a href="https://github.com/theme-next/theme-next-fancybox3" target="_blank" rel="noopener">图片预览插件</a></h2><h2 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h2>]]></content>
     
     <summary type="html">
     
@@ -58,6 +86,14 @@
     
     </summary>
     
+      <category term="速查手册" scheme="https://tanshuai1001.github.io/categories/%E9%80%9F%E6%9F%A5%E6%89%8B%E5%86%8C/"/>
+    
+    
+      <category term="markdown" scheme="https://tanshuai1001.github.io/tags/markdown/"/>
+    
+      <category term="hexo" scheme="https://tanshuai1001.github.io/tags/hexo/"/>
+    
+      <category term="NexT" scheme="https://tanshuai1001.github.io/tags/NexT/"/>
     
   </entry>
   
