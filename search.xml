@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[effective java]]></title>
+    <url>%2F2018%2F12%2F24%2Feffective-java%2F</url>
+    <content type="text"><![CDATA[第一章 开始effective java 主要涉及java.lang、java.util基本类库，某种程度上涉及java.util.concurrent和java.io共78条建议。 第二章 创建和销毁对象=========================== 1. 考虑使用静态方法工厂代替构造器2. 遇到多个构造器参数时考虑用构建器3. 用私有构造器或者枚举类型强化Singleton属性4. 通过私有构造器强化不可实例化的能力5. 避免创建不必要的对象6. 消除过期的对象引用7. 避免使用终结方法(finalizer)=========================== 第三章 所有对象通用方法=========================== 8. 覆盖equals时遵守通用约定9. 覆盖equals总是要覆盖hashCode10. 始终要覆盖toString11. 谨慎覆盖clone12. 考虑实现Comparable接口=========================== 第四章 类和接口=========================== 13. 使类和成员的可访问性最小化14. 在公有类中使用访问方法而不是公有域15. 使可变性最小化16. 复合优先于继承复合 17. 要么为继承而设计并提供文档说明，要么就禁止继承18. 接口优于抽象类接口 19. 接口只用于定义类型20. 类层次优于标签类类层次，标签类 21. 用函数对象表示策略22. 优先考虑静态成员类=========================== 第五章 泛型=========================== 23. 请不要再新代码中使用原生态类型原生态类型 24. 消除非受检警告有些警告比较难以消除，如果可以证明引起警告的代码是安全的，可以用@SuppressWarnings(“unchecked”) 25. 列表优于数组26. 优先考虑泛型27. 优先考虑泛型方法28. 利用有限的通配符来提升API的灵活性29. 优先考虑类型安全的异构容器调用方法时候不会混乱即类型安全，所有键值都是不同类型的即异构。 1234public class Favorites &#123; public &lt;T&gt; void putFavorites(Class&lt;T&gt; type, T instance); public &lt;T&gt; T getFavorite(Class&lt;T&gt; type);&#125; =========================== 第六章 枚举和注解=========================== 30. 用Enum代替int常量31. 用实例域代替序数32. 用EnumSet代替位域33. 用EnumMap代替序数索引34. 用接口模拟可伸缩的枚举35. 注解优于命名模式36. 坚持使用Override注解37. 用标记接口定义类型=========================== 第七章 方法=========================== 38. 检查参数的有效性39. 必要时进行保护性拷贝40. 谨慎设计方法签名41. 慎用重载42. 慎用可变参数43. 返回零长度的数组或集合而不是null44. 为所有导出的API元素编写文档注释=========================== 第八章 通用程序设计=========================== 45. 将局部变量的作用域最小化46. for-each循环优于传统的for循环47. 了解和使用类库48. 如果需要精确的答案，请避免使用float和double49. 基本类型优于装箱基本类型50. 如果其他类型更合适，则尽量避免使用字符串51. 当心字符串连接的性能52. 通过接口引用对象53. 接口优于反射机制接口与反射机制 54. 谨慎地使用本地方法55. 谨慎地进行优化56. 遵守普遍接受的命名惯例=========================== 第九章 异常=========================== 57. 只针对异常情况才使用异常58. 对可恢复情况使用受检异常，对编程错误使用运行时异常受检异常 59. 避免不必要地使用受检的异常60. 优先使用标准的异常61. 抛出与抽象相对应的异常62. 每个方法抛出的异常都要有文档63. 在细节消息中包含能捕获失败的信息64. 努力使失败保持原子性65. 不要忽略异常=========================== 第十章 并发=========================== 66. 同步访问共享的可变数据67. 避免过度同步68. executor和task优先于线程69. 并发工具优先于wait和notify70. 线程安全性的文档化71. 慎用延迟初始化72. 不要依赖线程调度器73. 避免使用线程组=========================== 第十一章 序列化=========================== 74. 谨慎地实现Serializable接口75. 考虑使用自定义的序列化形式76. 保护性地编写readObject方法77. 对于实例控制，枚举类型优先于readResolve78. 考虑使用序列化代理代替序列化实例]]></content>
+      <categories>
+        <category>计算机软件</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[设计模式笔记]]></title>
+    <url>%2F2018%2F12%2F24%2Fdesign-model%2F</url>
+    <content type="text"><![CDATA[概览根据模式的目的可分为：创建型，结构型和行为型 JavaScript设计模式相关书籍：《Learning JavaScript Design Patterns》 by Addy Osmani Java相关在线书籍和代码GitHub地址 面相对象设计原则1. 开闭原则一个软件实体应当对扩展开放，对修改关闭。即软件实体应尽量在不修改原有代码的情况下进行扩展。 2. 里氏替换原则所有引用基类（父类）的地方必须能透明地使用其子类的对象。 3. 依赖转换原则抽象不应该依赖于细节，细节应当依赖于抽象。 4. 单一职责原则一个类只负责一个功能领域中的相应职责。 5. 合成复用原则尽量使用对象组合，而不是继承来达到复用的目的。 6. 迪米特法则一个软件实体应当尽可能少地与其他实体发生相互作用。 7. 接口隔离原则使用多个专门的接口，而不使用单一的总接口，即客户端不应该依赖那些它不需要的接口。 使用频率高频率使用的模式: 工厂方法，抽象工厂，外观模式，迭代模式，观察者模式常用使用的模式：单例模式，适配器模式，代理模式，组合模式，策略模式，命令模式]]></content>
+      <categories>
+        <category>计算机软件</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+        <tag>设计模式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[mysql常用命令]]></title>
+    <url>%2F2018%2F05%2F13%2Fmysql-user-privileges%2F</url>
+    <content type="text"><![CDATA[新建数据库和归属用户在服务器上经常用mysql作不同用途，每个用途新建一个database和对应用户将访问权限分离开是良好的习惯。快速而方便地创建MySQL用户和数据库的语句： 创建数据库 1CREATE DATABASE databasename; 把数据库的所有权限归属到对应host下的用户并设置密码 12GRANT ALL PRIVILEGES ON databasename.* TO &quot;username&quot;@&quot;hostname&quot; IDENTIFIED BY &quot;password&quot;; FLUSH清除或者重新加载内部缓存，使权限生效 1FLUSH PRIVILEGES;]]></content>
+      <categories>
+        <category>速查手册</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo与NexT、markdown部分使用方法]]></title>
+    <url>%2F2018%2F03%2F04%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Hexo Quick Start 中文文档Create a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server -p 5000 More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment NexT图片预览插件 Markdown]]></content>
+      <categories>
+        <category>速查手册</category>
+      </categories>
+      <tags>
+        <tag>markdown</tag>
+        <tag>hexo</tag>
+        <tag>NexT</tag>
+      </tags>
+  </entry>
+</search>
