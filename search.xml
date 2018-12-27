@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[tushare数据平台]]></title>
+    <url>%2F2018%2F12%2F27%2Ftushare-data%2F</url>
+    <content type="text"><![CDATA[tushare PRO版本https://tushare.pro/register?reg=225995 http接口参数使用json模式(POSTMAN则选择BODY-raw-JSON)POST https://api.tushare.pro 123456&#123; "api_name":"stock_basic", "token":"you token", "params":&#123;"liststatus":"L"&#125;, "fields":""&#125;]]></content>
+      <tags>
+        <tag>finance</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[有用的资源网站]]></title>
+    <url>%2F2018%2F12%2F25%2Fuseful-sources%2F</url>
+    <content type="text"><![CDATA[Wallhaved壁纸网站Plxabay 免费的高清图片Gratisography免费高分辨率图片Splitshire 免费高清风景大图Unsplash 摄影师社区500px]]></content>
+      <categories>
+        <category>摄影图片</category>
+      </categories>
+      <tags>
+        <tag>资源索引</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[flutter入门]]></title>
+    <url>%2F2018%2F12%2F25%2Fflutter-start%2F</url>
+    <content type="text"><![CDATA[flutter中文网flutter官方网站github样例代码 Dart基础内置类型Number(num,int double),String,Boolean,Map,ListRunes, Symbols var, dynamic 数值操作~/ 取整除法字符串 * n: 复制n次插值表达式${expression}List的创建： 123var list = [1,2,3];var list = const [1,2,3]; // 常量Map类似var list = new List(); 复制运算符: ??= 如果变量为空则赋值 1234var a;a ??= 5;String b = "1";String c = a ?? b; 函数方法 构造函数继承类似C++冒号继承语法,key值是唯一确定元素。 switch里面的continue跳转到标签，类似goto 函数可选参数： 123456789//可选命名参数func(String name,&#123;int age, int gender&#125;)&#123; print("name=$name,age=$age,gender=$gender")&#125;//方括号调用的时候没有参数名称//可选位置参数func(String name,[int age, int gender])&#123; print("name=$name,age=$age,gender=$gender")&#125; 其他 123456789101112131415161718192021list.forEach(print) //方法对象()&#123; &#125; // 匿名方法// 闭包void main()&#123;var a = func();a(); //1a(); //2func()(); //1func()(); //1&#125;func()&#123;int _count = 0;return ()&#123; _count++; print(_count);&#125;;&#125; 异步支持Dart类库有非常多的返回Future或者Stream对象的函数。 这些函数被称为异步函数：它们只会在设置好一些耗时操作之后返回，比如像 IO操作。而不是等到这个操作完成。 async和await关键词支持了异步编程 Future.thenFuture.catchErrorFuture.delayedFuture.whenCompleteFuture.wait等待多个异步任务都执行结束后才进行下一步操作Async/await使用async/await消除callback hellasync用来表示函数是异步的，定义的函数会返回一个Future对象，可以使用then方法添加回调函数。await 后面是一个Future，表示等待该异步任务完成，异步完成后才会往下走；await必须出现在 async 函数内部。 1234567891011task() async &#123; try&#123; String id = await login("alice","******"); String userInfo = await getUserInfo(id); await saveUserInfo(userInfo); //执行接下来的操作 &#125; catch(e)&#123; //错误处理 print(e); &#125; &#125; 运行命令单个dart文件控制台输出dart lib/filename.dart（需配置dart环境变量使dart命令可以使用）flutter项目flutter run要关闭调试模式并使用发布模式，请使用flutter run --release运行您的应用程序。 这也关闭了Observatory调试器。一个中间模式可以关闭除Observatory之外所有调试辅助工具的，称为“profile mode”，用–profile替代–release即可。 国内镜像新增两个环境变量 12345PUB_HOSTED_URLhttps://pub.flutter-io.cnFLUTTER_STORAGE_BASE_URLhttps://storage.flutter-io.cn 执行一下 flutter doctor命令下载在 package get 应该就没有问题了。 组件有状态组件StatelessWidget、无状态组件StatefulWidget TextWidget123456789textAlign:TextAlign.center,maxLines:1,overflow:TextOverflow.ellipsis,style:TextStyle( frontSize: 25.0, //浮点数 color: Color.fromARGB(255,255,255,255), //A:透明度 decoration: TextDecoration.underline, decorationStyle: TextDecorationStyle.solid) ContainerWidget12345678910111213alignment:Alignment.topLeft,padding:const EdgeInsets.fromLTRB(1,2,3,4), //设置左上右下四个方向的值//LinearGradient设置背景颜色渐变//BoxDecoration Widgetdecoration: new BoxDecoration( gradient: const LinearGradient( colors:[ Colors.lightBlue, Colors.greenAccent, Colors.purple ] )) ImageWidgetfit属性图片的混合模式repeat属性Image.asset: 加载资源图片，会被打包Image.network: 网络资源图片Image.file: 本地图片Image.memory: 加载到内存的图片 12345678910new Inmage.network( "url", scale:2.0,//图片缩放，值越大，图片越小 fit:BoxFit.fill, // fill拉伸图片布满容器, contain适应图片, cover布满容器自动裁剪 // fitWidth, fitHeight, scaleDown color:Colors.greenAccent, colorBlendMode: Blenmode.modulate, repeat:ImageRepeat.repeat) ListViewWidgetListTile 12345678910new ListView( children: &lt;Widget&gt;[ new ListTile( ), new ListTile( ), ]) 动态列表12345678new ListView.builder( itemCount: items.length, itemBuilder:(context,index)&#123; return new ListTile( title: new Text("$&#123;items[index]&#125;") ) &#125;) 横向列表Axis.horizontal/vertical GridView WidgetgridDelegate mainAxisSpacingcrossAxisSpacingcrossAxisCountchildAspectRatio: 0.8, 指的是width/height]]></content>
+      <categories>
+        <category>计算机软件</category>
+      </categories>
+      <tags>
+        <tag>flutter</tag>
+        <tag>android</tag>
+        <tag>dart</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[effective java]]></title>
     <url>%2F2018%2F12%2F24%2Feffective-java%2F</url>
     <content type="text"><![CDATA[第一章 开始effective java 主要涉及java.lang、java.util基本类库，某种程度上涉及java.util.concurrent和java.io共78条建议。 第二章 创建和销毁对象=========================== 1. 考虑使用静态方法工厂代替构造器2. 遇到多个构造器参数时考虑用构建器3. 用私有构造器或者枚举类型强化Singleton属性4. 通过私有构造器强化不可实例化的能力5. 避免创建不必要的对象6. 消除过期的对象引用7. 避免使用终结方法(finalizer)=========================== 第三章 所有对象通用方法=========================== 8. 覆盖equals时遵守通用约定9. 覆盖equals总是要覆盖hashCode10. 始终要覆盖toString11. 谨慎覆盖clone12. 考虑实现Comparable接口=========================== 第四章 类和接口=========================== 13. 使类和成员的可访问性最小化14. 在公有类中使用访问方法而不是公有域15. 使可变性最小化16. 复合优先于继承复合 17. 要么为继承而设计并提供文档说明，要么就禁止继承18. 接口优于抽象类接口 19. 接口只用于定义类型20. 类层次优于标签类类层次，标签类 21. 用函数对象表示策略22. 优先考虑静态成员类=========================== 第五章 泛型=========================== 23. 请不要再新代码中使用原生态类型原生态类型 24. 消除非受检警告有些警告比较难以消除，如果可以证明引起警告的代码是安全的，可以用@SuppressWarnings(“unchecked”) 25. 列表优于数组26. 优先考虑泛型27. 优先考虑泛型方法28. 利用有限的通配符来提升API的灵活性29. 优先考虑类型安全的异构容器调用方法时候不会混乱即类型安全，所有键值都是不同类型的即异构。 1234public class Favorites &#123; public &lt;T&gt; void putFavorites(Class&lt;T&gt; type, T instance); public &lt;T&gt; T getFavorite(Class&lt;T&gt; type);&#125; =========================== 第六章 枚举和注解=========================== 30. 用Enum代替int常量31. 用实例域代替序数32. 用EnumSet代替位域33. 用EnumMap代替序数索引34. 用接口模拟可伸缩的枚举35. 注解优于命名模式36. 坚持使用Override注解37. 用标记接口定义类型=========================== 第七章 方法=========================== 38. 检查参数的有效性39. 必要时进行保护性拷贝40. 谨慎设计方法签名41. 慎用重载42. 慎用可变参数43. 返回零长度的数组或集合而不是null44. 为所有导出的API元素编写文档注释=========================== 第八章 通用程序设计=========================== 45. 将局部变量的作用域最小化46. for-each循环优于传统的for循环47. 了解和使用类库48. 如果需要精确的答案，请避免使用float和double49. 基本类型优于装箱基本类型50. 如果其他类型更合适，则尽量避免使用字符串51. 当心字符串连接的性能52. 通过接口引用对象53. 接口优于反射机制接口与反射机制 54. 谨慎地使用本地方法55. 谨慎地进行优化56. 遵守普遍接受的命名惯例=========================== 第九章 异常=========================== 57. 只针对异常情况才使用异常58. 对可恢复情况使用受检异常，对编程错误使用运行时异常受检异常 59. 避免不必要地使用受检的异常60. 优先使用标准的异常61. 抛出与抽象相对应的异常62. 每个方法抛出的异常都要有文档63. 在细节消息中包含能捕获失败的信息64. 努力使失败保持原子性65. 不要忽略异常=========================== 第十章 并发=========================== 66. 同步访问共享的可变数据67. 避免过度同步68. executor和task优先于线程69. 并发工具优先于wait和notify70. 线程安全性的文档化71. 慎用延迟初始化72. 不要依赖线程调度器73. 避免使用线程组=========================== 第十一章 序列化=========================== 74. 谨慎地实现Serializable接口75. 考虑使用自定义的序列化形式76. 保护性地编写readObject方法77. 对于实例控制，枚举类型优先于readResolve78. 考虑使用序列化代理代替序列化实例]]></content>
@@ -8,7 +41,6 @@
         <category>计算机软件</category>
       </categories>
       <tags>
-        <tag>编程</tag>
         <tag>java</tag>
       </tags>
   </entry>
@@ -20,13 +52,12 @@
         <category>计算机软件</category>
       </categories>
       <tags>
-        <tag>编程</tag>
         <tag>设计模式</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[mysql常用命令]]></title>
-    <url>%2F2018%2F05%2F13%2Fmysql-user-privileges%2F</url>
+    <url>%2F2018%2F05%2F13%2Fmysql-frequently-used%2F</url>
     <content type="text"><![CDATA[新建数据库和归属用户在服务器上经常用mysql作不同用途，每个用途新建一个database和对应用户将访问权限分离开是良好的习惯。快速而方便地创建MySQL用户和数据库的语句： 创建数据库 1CREATE DATABASE databasename; 把数据库的所有权限归属到对应host下的用户并设置密码 12GRANT ALL PRIVILEGES ON databasename.* TO &quot;username&quot;@&quot;hostname&quot; IDENTIFIED BY &quot;password&quot;; FLUSH清除或者重新加载内部缓存，使权限生效 1FLUSH PRIVILEGES;]]></content>
       <categories>
         <category>速查手册</category>
@@ -38,7 +69,7 @@
   <entry>
     <title><![CDATA[Hexo与NexT、markdown部分使用方法]]></title>
     <url>%2F2018%2F03%2F04%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Hexo Quick Start 中文文档Create a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server -p 5000 More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment NexT图片预览插件 Markdown]]></content>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Hexo Quick Start 中文文档Create a new post1hexo new "My New Post" More info: Writing Run server1hexo server -p 5000 More info: Server Generate static files1hexo generate More info: Generating Deploy to remote sites1hexo deploy More info: Deployment NexT图片预览插件 Markdown速记标题N个#号代表N级标题 字体加粗要加粗的文字左右分别用两个*号包起来 斜体要倾斜的文字左右分别用一个*号包起来 斜体加粗要倾斜和加粗的文字左右分别用三个*号包起来 删除线要加删除线的文字左右分别用两个~~号包起来 引用在引用的文字前加&gt;即可。引用也可以嵌套，如加两个&gt;&gt;三个&gt;&gt;&gt;n个… 分割线三个或者三个以上的 - 或者 * 都可以。 图片1![图片alt](图片地址 &apos;&apos;图片title&apos;&apos;) 超链接12[超链接名](超链接地址 &quot;超链接title&quot;)title可加可不加 列表无序列表用 - + * 任何一种都可以有序列表数字加点列表嵌套上一级和下一级之间缩进三个空格即可 第一章 第一节 第二节 第二章 表格1234表头|表头|表头---|:--:|---:内容|内容|内容内容|内容|内容 代码单行代码：代码之间分别用一个反引号`包起来代码块：代码之间分别用三个反引号1234567891011121314151617181920### 流程图需要插件支持，Hexo插件 hexo-filter-flowchart与代码块类似，语言写flow，内容按flow语法写就行```flowst=&gt;start: 开始e=&gt;end: 登录io1=&gt;inputoutput: 输入用户名密码sub1=&gt;subroutine: 数据库查询子类cond=&gt;condition: 是否有此用户cond2=&gt;condition: 密码是否正确op=&gt;operation: 读入用户信息st-&gt;io1-&gt;sub1-&gt;condcond(yes,right)-&gt;cond2cond(no)-&gt;io1(right)cond2(yes,right)-&gt;op-&gt;econd2(no)-&gt;io1 数学公式页面头部打开渲染开关mathjax: true行内$...$行间居中$$...$$ 上下标^ 表示上标，_ 表示下标。 12$a_&#123;1&#125;$,$x^&#123;2&#125;$,$e^&#123;-\alpha t&#125;$,$a^&#123;i&#125;_&#123;ij&#125;$$$\sideset&#123;^xy&#125;&#123;^xy&#125;\bigotimes$$ $a_{1}$,$x^{2}$,$e^{-\alpha t}$,$a^{i}_{ij}$$$\sideset{^xy}{^xy}\bigotimes$$ 平方根平方根输入命令为 \sqrt，n次方根命令为 \sqrt[n]$\sqrt{x}$ $\sqrt{x^2}+\sqrt{y}$ $\sqrt[3]{2}$ 1$\sqrt&#123;x&#125;$ $\sqrt&#123;x^2&#125;+\sqrt&#123;y&#125;$ $\sqrt[3]&#123;2&#125;$ 水平线使用 \overline 和 \underline 分别在表达式上下方画出水平线$\overline{m + n}$ $\underline{m + n}$ 1$\overline&#123;m + n&#125;$ $\underline&#123;m + n&#125;$ 水平大括号命令 \overbrace 和 \underrace，效果如下$\underbrace{a+b+\cdots+z}$$\overbrace{a+b+\cdots+z}$ 12$\underbrace&#123;a+b+\cdots+z&#125;$$\overbrace&#123;a+b+\cdots+z&#125;$ 矢量矢量的命令是 \vec，用于单个字母的向量表示。\overrightarrow 和\overleftarrow 分别表示向右和向左的向量箭头$\vec{a}$ $\overrightarrow{AB}$ $\overleftarrow{BA}$ 1$\vec&#123;a&#125;$ $\overrightarrow&#123;AB&#125;$ $\overleftarrow&#123;BA&#125;$ 分数分数使用 \frac{…}{…}$1\frac{1}{2}$ $\frac{x^2}{k+1}$ $x^{1/2}$ 1$1\frac&#123;1&#125;&#123;2&#125;$ $\frac&#123;x^2&#125;&#123;k+1&#125;$ $x^&#123;1/2&#125;$ 积分运算符积分运算符使用 \int 生成。求和运算符使用 \sum 生成。乘积运算符使用 \prod 生成。上下限使用^ 和_ 命令，类似 上下标$\sum_{i=1}^{n}$ $\int_{0}^{\frac{\pi}{2}}$ $\prod_\epsilon$ 1$\sum_&#123;i=1&#125;^&#123;n&#125;$ $\int_&#123;0&#125;^&#123;\frac&#123;\pi&#125;&#123;2&#125;&#125;$ $\prod_\epsilon$ 希腊字母$\alpha$ $\beta$ $\gamma$ $\delta$ $\epsilon$ 1$\alpha$ $\beta$ $\gamma$ $\delta$ $\epsilon$]]></content>
       <categories>
         <category>速查手册</category>
       </categories>
