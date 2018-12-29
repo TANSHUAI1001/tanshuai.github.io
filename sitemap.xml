@@ -2,9 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://tanshuai1001.github.io/2018/12/29/java-synchronized/</loc>
+    
+    <lastmod>2018-12-29T07:32:26.475Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanshuai1001.github.io/2018/12/25/useful-sources/</loc>
+    
+    <lastmod>2018-12-29T04:57:16.392Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanshuai1001.github.io/2018/12/25/flutter-start/</loc>
+    
+    <lastmod>2018-12-29T04:56:33.542Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanshuai1001.github.io/2018/12/28/caches-compare/</loc>
+    
+    <lastmod>2018-12-29T04:39:35.376Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://tanshuai1001.github.io/2018/12/28/oracle-basis/</loc>
     
-    <lastmod>2018-12-28T07:49:21.825Z</lastmod>
+    <lastmod>2018-12-29T02:18:58.165Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanshuai1001.github.io/2018/12/28/PLSQL-basis/</loc>
+    
+    <lastmod>2018-12-28T15:01:09.285Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanshuai1001.github.io/2018/05/13/mysql-frequently-used/</loc>
+    
+    <lastmod>2018-12-28T08:09:32.928Z</lastmod>
     
   </url>
   
@@ -30,30 +72,9 @@
   </url>
   
   <url>
-    <loc>https://tanshuai1001.github.io/2018/05/13/mysql-frequently-used/</loc>
-    
-    <lastmod>2018-12-27T01:57:31.236Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanshuai1001.github.io/2018/12/25/flutter-start/</loc>
-    
-    <lastmod>2018-12-27T01:49:10.507Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://tanshuai1001.github.io/2018/12/24/effective-java/</loc>
     
     <lastmod>2018-12-25T10:03:42.656Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanshuai1001.github.io/2018/12/25/useful-sources/</loc>
-    
-    <lastmod>2018-12-25T06:03:26.109Z</lastmod>
     
   </url>
   
