@@ -1,6 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[java web 应用框架]]></title>
+    <url>%2F2019%2F01%2F06%2Fjava-web-frameworks%2F</url>
+    <content type="text"><![CDATA[SpringMVC vs. Struts2SpringMVCStruts2Apache软件基金会开源项目，基于MVC设计模式的应用程序框架MVC模式：JSP+JavaBean=Model1,JSP+Servlet+JavaBean=Model2(最典型的的MVC) SpringHibernate vs. Mybatis vs. SpringDataJPAJava Persistence API (JPA) 是一种规范。Hibernate就是实现了JPA接口的ORM框架。Spirng data jpa是spring提供的一套简化JPA开发的框架，按照约定好的【方法命名规则】写dao层接口，就可以在不写接口实现的情况下，实现对数据库的访问和操作。同时提供了很多除了CRUD之外的功能，如分页、排序、复杂查询等。Spring Data JPA 可以理解为 JPA 规范的再次封装抽象，底层还是使用了 Hibernate 的 JPA 技术实现。 Mybatis支持定制化 SQL、存储过程以及高级映射。MyBatis 避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集。 SpringbootShiro vs. SpringSecurity]]></content>
+      <categories>
+        <category>计算机软件</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[java并发]]></title>
+    <url>%2F2019%2F01%2F05%2Fjava-concurrent%2F</url>
+    <content type="text"><![CDATA[Reentrancy(重进入)重进入意味着锁的请求是基于线程(per-thread)而不是调用(invocation)每个锁关联一个请求计数(acquisition count)和一个占有它的线程 并发容器同步容器类包括Vector和Hashtable并发容器改进了同步容器类，提供不会抛出ConcurrentModificationException的迭代器 ConcurrentHashMapConcurrentHashMap代替同步的HashMap，是常用的并发容器。原来用公共锁同步每一个方法，并严格限制只有一个线程能同时访问容器。ConcurrentHashMap使用更加细化的分离锁机制。 任意数量读程序可以访问 读写可以并发访问 有限的写程序可以并发 ConcurrentMapConcurrentHashMap不能够在独占访问中被加锁。使用ConcurrentMap接口常见的复合操作：put-if-absent, remove-if-equal, replace-if-equal等都已经实现为原子操作 CopyOnWriteArrayList同步List的一个并发替代品（CopyOnWriteArraySet是同步Set的一个并发替代品）访问不需要同步，每次修改都会创建并重新发布一个新的容器拷贝 BlockingQueue提供可阻塞的put和take方法，与可定时的offer和poll等价offer方法如果未执行成功会返回一个失败状态，可以根据状态来制定策略 LinkedBlockingQueue和ArrayBlockingQueue是FIFO队列（与LinkedList和ArrayList相似） PriorityBlockingQueue优先级队列，可以使用Comparable和Comparator处理顺序 SynchronousQueue没有存储能力，除非另一个线程已经准备好参与移交工作，否则put和take会一直阻塞]]></content>
+      <categories>
+        <category>计算机软件</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[JVM调优]]></title>
+    <url>%2F2019%2F01%2F04%2FJVM-optimizing%2F</url>
+    <content type="text"><![CDATA[概念回收算法调优总结（三）-基本垃圾回收算法 按照基本回收策略分:引用计数（Reference Counting）、标记-清除（Mark-Sweep）、复制（Copying）、标记-整理（Mark-Compact） 按分区对待的方式分：增量收集（Incremental Collecting）、分代收集（Generational Collecting） 按系统线程分：串行收集、并行收集、并发收集 分代收集（Generational Collecting）虚拟机中的共划分为三个代：年轻代（Young Generation）、年老点（Old Generation）和持久代（Permanent Generation）。 为什么新生代内存需要有两个Survivor区Minor GC 年轻代空间清理回收Major GC 年老代空间清理回收（因为Major GC一般伴随着Minor GC，也可以看做触发了Full GC）Full GC 整个堆空间的清理回收刚刚新建的对象在Eden中，经历一次Minor GC，Eden中的存活对象就会被移动到第一块survivor space S0，Eden被清空；等Eden区再满了，就再触发一次Minor GC，Eden和S0中的存活对象又会被复制送入第二块survivor space S1（这个过程非常重要，因为这种复制算法保证了S1中来自S0和Eden两部分的存活对象占用连续的内存空间，避免了碎片化的发生）。S0和Eden被清空，然后下一轮S0与S1交换角色，如此循环往复。整个过程中，永远有一个survivor space是空的。另一个非空的survivor space无碎片。 引用类型对象引用类型分为强引用、软引用、弱引用和虚引用。 强引用:就是我们一般声明对象是时虚拟机生成的引用，强引用环境下，垃圾回收时需要严格判断当前对象是否被强引用，如果被强引用，则不会被垃圾回收 软引用:软引用一般被做为缓存来使用。与强引用的区别是，软引用在垃圾回收时，虚拟机会根据当前系统的剩余内存来决定是否对软引用进行回收。如果剩余内存比较紧张，则虚拟机会回收软引用所引用的空间；如果剩余内存相对富裕，则不会进行回收。换句话说，虚拟机在发生OutOfMemory时，肯定是没有软引用存在的。 弱引用:弱引用与软引用类似，都是作为缓存来使用。但与软引用不同，弱引用在进行垃圾回收时，是一定会被回收掉的，因此其生命周期只存在于一个垃圾回收周期内。 系统一般在使用时都是用的强引用。而“软引用”和“弱引用”比较少见。他们一般被作为缓存使用，而且一般是在内存大小比较受限的情况下做为缓存。因为如果内存足够大的话，可以直接使用强引用作为缓存即可，同时可控性更高。因而，他们常见的是被使用在桌面应用系统的缓存。 垃圾收集器垃圾收集算法是方法论，垃圾收集器是具体实现。JDK7/8后，HotSpot虚拟机所有收集器及组合 Serial收集器Serial收集器是最基本、历史最久的收集器，曾是新生代手机的唯一选择。他是单线程的，只会使用一个CPU或一条收集线程去完成垃圾收集工作，并且它在收集的时候，必须暂停其他所有的工作线程，直到它结束，即“Stop the World”。 ParNew收集器ParNew收集器是Serial收集器的多线程版本 Parallel Scavenge收集器新生代收集器，并行的多线程收集器。 Serial Old收集器Serial 收集器的老年代版本，单线程，“标记整理”算法，主要是给Client模式下的虚拟机使用。 Parallel Old收集器 CMS(Concurrent Mark Sweep)收集器 G1收集器 参数配置JVM调优总结（七）-典型配置举例1M调优总结（八）-典型配置举例2 堆设置-Xms:初始堆大小-Xmx:最大堆大小-XX:NewSize=n:设置年轻代大小-XX:NewRatio=n:设置年轻代和年老代的比值。如:为3，表示年轻代与年老代比值为1：3，年轻代占整个年轻代年老代和的1/4-XX:SurvivorRatio=n:年轻代中Eden区与两个Survivor区的比值。注意Survivor区有两个。如：3，表示Eden：Survivor=3：2，一个Survivor区占整个年轻代的1/5-XX:MaxPermSize=n:设置持久代大小 收集器设置-XX:+UseSerialGC:设置串行收集器-XX:+UseParallelGC:设置并行收集器-XX:+UseParalledlOldGC:设置并行年老代收集器-XX:+UseConcMarkSweepGC:设置并发收集器 垃圾回收统计信息-XX:+PrintGC-XX:+PrintGCDetails-XX:+PrintGCTimeStamps-Xloggc:filename 并行收集器设置-XX:ParallelGCThreads=n:设置并行收集器收集时使用的CPU数。并行收集线程数。-XX:MaxGCPauseMillis=n:设置并行收集最大暂停时间-XX:GCTimeRatio=n:设置垃圾回收时间占程序运行时间的百分比。公式为1/(1+n) 并发收集器设置-XX:+CMSIncrementalMode:设置为增量模式。适用于单CPU情况。-XX:ParallelGCThreads=n:设置并发收集器年轻代收集方式为并行收集时，使用的CPU数。并行收集线程数。 JVM调优工具Jconsole，jProfile，VisualVM 总结M调优总结（九）-新一代的垃圾回收算法 Garbage Firest（G1）Garbage First介绍]]></content>
+      <categories>
+        <category>计算机软件</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Java Message Service]]></title>
+    <url>%2F2019%2F01%2F04%2FJava-Message-Service%2F</url>
+    <content type="text"><![CDATA[JMS &amp;&amp; AMQPJMS 定义了JAVA API层面的标准；在java体系中，多个client均可以通过JMS进行交互，不需要应用修改代码，但是其对跨平台的支持较差；AMQP定义了wire-level层的协议标准；天然具有跨平台、跨语言特性。JMS（Java Message Service）JAVA消息服务： – 基于JVM消息代理的规范。ActiveMQ、HornetMQ是JMS实现AMQP（Advanced Message Queuing Protocol） – 高级消息队列协议，也是一个消息代理的规范，兼容JMS – RabbitMQ是AMQP的实现 RabbitMQ基于Erlang语言实现的，开源，稳定SpringAMQP ActiveMQ]]></content>
+      <categories>
+        <category>计算机软件</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>JMS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[大数据基础]]></title>
+    <url>%2F2019%2F01%2F04%2Fbig-data-basis%2F</url>
+    <content type="text"><![CDATA[以hadoop和Spark为代表的平台上进行数据分析技术包括实时数据处理，离线数据处理，数据分析，数据挖掘，机器算法分析预测 分布式发布订阅消息系统KafkaKafka是由Apache软件基金会开发的一个开源流处理平台，由Scala和Java编写。Kafka是一种高吞吐量的分布式发布订阅消息系统，它可以处理消费者规模的网站中的所有动作流数据。 这种动作（网页浏览，搜索和其他用户的行动）是在现代网络上的许多社会功能的一个关键因素。 这些数据通常是由于吞吐量的要求而通过处理日志和日志聚合来解决。 对于像Hadoop的一样的日志数据和离线分析系统，但又要求实时处理的限制，这是一个可行的解决方案。Kafka的目的是通过Hadoop的并行加载机制来统一线上和离线的消息处理，也是为了通过集群来提供实时的消息。 HDFS:分布式文件系统数据块：默认64M，一般设置128M，备份3份 NameNode（一个）：管理文件系统的命名空间，存放文件元数据；维护文件系统的所有文件和目录，文件与数据块的映射；记录每个文件中各个块所在的数据节点信息； DataNode（多个）：存储并检索数据块；向NameNode更新所存储块的列表； 常用Shell命令：类Linux系统：ls, cat, mkdir, rm, chmod, chownHDFS文件交互：copyFromLocal, copyToLocal, get, putpython库：hdfs3 MapReduce:分布式计算YARN:ResourceManager分配和调度资源；启动并监控ApplicationManager；监控NodeManagerApplicationMaster为MR(MapReduce)类型的程序申请资源，并分配给内部任务；负责数据切分；监控数据执行和容错NodeManager管理单个节点的资源；处理来自ResourceManager的命令；处理来自ApplicationMaster的命令 MapReduce编程模型大文件分成多个分片；每个分片由单独的机器去处理，这是Map方法；将各个机器的计算结果进行汇总并得到最终的结果，这就是Reduce方法 简单示例： 123l = ["a","bb","ccc"]l_count = map(len,l) //[1,2,3]l_sum = reduce(lambda x,y:x+y,l_count) //6 HBase高可靠，高性能，面向列，可伸缩，实时读写的分布式数据库利用HDFS(Hadoop Distributed File System)作为文件存储系统 Spark基于内存计算的大数据并行计算框架MapReduce的替代方案，兼容HDFS，HIVE等数据源弹性分布式数据集RDD(Resilient Distributed Datasets)基于事件驱动，通过线程池服用线程提高性能]]></content>
+      <categories>
+        <category>计算机软件</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[spring MVC webflux]]></title>
+    <url>%2F2019%2F01%2F04%2Fspring-MVC-webflux%2F</url>
+    <content type="text"><![CDATA[Web on Servlet StackWeb on Reactive Stack[Java] SpringMVC工作原理之一：DispatcherServlet[Java] SpringMVC工作原理之二：HandlerMapping和HandlerAdapter[Java] SpringMVC工作原理之三：ViewResolver[Java] SpringMVC工作原理之四：MultipartResolver]]></content>
+      <categories>
+        <category>计算机软件</category>
+      </categories>
+      <tags>
+        <tag>spring</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[uml graphs]]></title>
+    <url>%2F2019%2F01%2F01%2Fuml-graphs%2F</url>
+    <content type="text"><![CDATA[用例图、类图、序列图、状态图、活动图、通信图、构件图、部署图以及复合结构图]]></content>
+      <categories>
+        <category>计算机软件</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[spring aop 概念]]></title>
+    <url>%2F2018%2F12%2F29%2Fspring-aop-concept%2F</url>
+    <content type="text"><![CDATA[概览编程范式：面向过程，面向对象，函数式编程，事件驱动编程，面向切面面向切面解决特定问题是面向对象的补充，使非功能性需求与功能性需求分离应用：权限控制，缓存控制，事务控制，审计日志，性能监控，分布式追踪，异常处理 Spring AOP是什么?你都拿它做什么? 使用主要注解AspectJ注解：@Aspect, @Pointcut, Advice 切面表达式（Ponitcut expression）config使用@Aspect, @Component注解 desiganators（指示器）：匹配方法: execution() 1234567891011 // ? 表示可以省略 execution( modifier-pattern? //修饰符 ret-type-pattern //返回值 declaring-type-pattern? //描述包名？ name-pattern(param-pattern) //方法名，方法参数 throws-pattern? //异常 )@Pointcut("execution(public * com.example.*Service.*(..) throws java.lang.IllegalAccessException)")public void method()&#123;&#125; 匹配注解:@target():类注解@args():参数注解@within():类注解@annotation():方法注解 123456789101112131415161718//AdminOnly.java@Retention(RetentionPolicy.RUNTIME)@Target(ElementType.METHOD)public @interface AdminOnly &#123;&#125;//AspectConfig.java@Aspect@Componentpublic class AspectConfig &#123; @Pointcut("@annotation(AdminOnly)") public void method()&#123; &#125; @Before("method()") public void before()&#123; System.out.println("handle"); &#125;&#125; 匹配包/类型: within() 123456//匹配ProductService类里的所有方法@Pointcut("within(com.example.service.ProductService)")public void matchType()&#123; &#125;//匹配com.example包及子包下所有的类方法@Pointcut("within(com.example..*)")public void matchPackage()&#123; &#125; 匹配对象: this(), bean(), target() 12345678910public class DemoDao implements IDao&#123; &#125;//匹配DemoDao的aop代理对象的方法 ==》 aop代理是指？@Pointcut("this(com.example.DemoDao)")public void beanDemo()&#123; &#125;//匹配实现IDao接口的目标对象的方法@Pointcut("target(com.example.IDao)")public void beanDemo()&#123; &#125;//匹配以Service结尾的bean里的方法@Pointcut("bean(*Service)")public void beanDemo()&#123; &#125; 匹配参数: args(), excution() 1234@Pointcut("execution(**..find*(Long))") //只有一个参数@Pointcut("execution(**..find*(Long,..))") //第一个参数是Long@Pointcut("args(Long)")@Pointcut("args(Long,..)") wildcards（通配符）：*匹配任意数量的字符+匹配指定类及其子类..匹配任意数的子包或参数 operators（运算符）：&amp;&amp;与,||或,!非 5种主要的Advice@Before 前置通知@After 后置通知，方法执行完之后@AfterReturning 返回通知，成功执行之后，有returning数据@AfterThrowing 异常通知，抛出异常之后@Around 环绕通知上下文：ProceedingJoinPoint 原理设计：代理模式，职责链模式实现：JDK实现，Cglib实现注意事项-AOP不能拦截内部调用 代理静态代理: 实现同一接口，调用目标对象的方法。动态代理：基于接口代理，基于继承代理InvocationHandler(JDK), MethodInterceptor(cglib-github)对比： JDK只能针对有接口的类的接口方法进行动态代理 cglib基于继承，因此无法对static,final方法进行代理 12345678910111213141516public interface Subject &#123; public void request(); public void hello();&#125;public class RealSubject implements Subject&#123; @Override public void request() &#123; System.out.println("subject request"); &#125; @Override public void hello() &#123; System.out.println("hello"); &#125;&#125; 1234567891011121314151617181920212223// jdkpublic class JdkProxySubject implements InvocationHandler &#123; private RealSubject realSubject; public JdkProxySubject(RealSubject realSubject) &#123; this.realSubject = realSubject; &#125; @Override public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123; System.out.println("before"); Object result = null; try &#123; result = method.invoke(realSubject,args); &#125;catch (Exception e)&#123; System.out.println("ex:"+e.getMessage()); throw e; &#125;finally &#123; System.out.println("after"); &#125; return result; &#125;&#125; 123456789101112131415161718// cglibpublic class DemoMethodInterceptor implements MethodInterceptor&#123; @Override public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable &#123; System.out.println("cglib before"); Object result = null; try&#123; result = methodProxy.invokeSuper(o,objects); &#125;catch (Exception e)&#123; System.out.println("cglib ex:"+e.getMessage()); throw e; &#125;finally &#123; System.out.println("cglib after"); &#125; return result; &#125;&#125; 12345678910111213141516171819public class Client &#123; public static void main(String[] args) &#123; // jdk Subject subject = (Subject) Proxy.newProxyInstance(Client.class.getClassLoader(), new Class[]&#123;Subject.class&#125;, new JdkProxySubject(new RealSubject())); subject.request(); subject.hello(); // cglib Enhancer enhancer = new Enhancer(); enhancer.setSuperclass(RealSubject.class); enhancer.setCallback(new DemoMethodInterceptor()); Subject subject1 = (Subject) enhancer.create(); subject1.hello(); subject1.request(); &#125;&#125; 顺带一提IOC与DIIoC可以认为是一种全新的设计模式。控制反转（Inversion of Control），是面向对象编程中的一种设计原则，可以用来减低计算机代码之间的耦合度。其中最常见的方式叫做依赖注入（Dependency Injection）。现有的框架实际上使用以下三种基本技术的框架执行服务和部件间的绑定： (基于接口): 可服务的对象需要实现一个专门的接口，该接口提供了一个对象，可以重用这个对象查找依赖(其它服务)。早期的容器Excalibur使用这种模式。 (基于setter): 通过JavaBean的属性(setter方法)为可服务对象指定服务。HiveMind和Spring采用这种方式。 (基于构造函数): 通过构造函数的参数为可服务对象指定服务。PicoContainer只使用这种方式。HiveMind和Spring也使用这种方式 简单情况：网络请求直接传对象需要的参数，然后spring直接用类来接收，一个类实体就被实例化了。IOC可以理解为把Spring当做一个容器，用来管理各种service、dao等。不用再去手动new。]]></content>
+      <categories>
+        <category>计算机软件</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>spring</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[java的synchronized关键字]]></title>
     <url>%2F2018%2F12%2F29%2Fjava-synchronized%2F</url>
     <content type="text"><![CDATA[性质：可重入，不可中断两种用法：对象锁（方法锁，同步代码块锁），类锁（静态方法，class对象）多线程访问同步方法的7种情况加解锁原理（计数器加减），可重入原理，可见性原理（写回主内存再通信）书籍：Java并发编程实战 对象锁同步代码块123synchronized (this)&#123; n++;&#125; 1234567891011Object lock1 = new Object();Object lock2 = new Object();//两个lock锁定的不同代码块可以并行执行...synchronized (lock1)&#123; n++;&#125;synchronized (lock1)&#123; m++;&#125; 方法锁123public synchronized void addition()&#123; n++;&#125; 类锁静态方法123public synchronized static void addition()&#123; n++;&#125; class对象123synchronized (*.class)&#123; n++;&#125; 7种常见情况 两个线程同时访问一个对象的同步方法 – 串行 两个线程访问两个对象的同步方法 – 并行 两个线程访问synchronized得静态方法 – 串行 同时访问同步和非同步方法 – （一个线程访问同步方法，一个访问非同步，不影响）并行 访问同一个对象的不同的普通同步方法（非static方法） – （同一个实例默认使用this）串行 同时访问静态synchronized和非静态synchronized方法 – 并行 方法抛异常后会释放锁 – Lock类型的锁不会释放 性质可重入同一线程的外层函数获得锁之后，内层函数可直接再次获取该锁（同一把锁）内层函数可以是1.同一个方法2.不同方法3.不同类（子父类）好处：避免死锁，提升封装性粒度：线程而非调用（pthread的粒度是调用） 不可中断Lock接口123456Lock lock = new ReentrantLock();public void method()&#123; lock.lock(); n++; lock.unlock();&#125; 反编译12javac test.java //编译javap -verbose test.class //反编译查看字节码,-verbose把信息打印出来 缺陷 效率低：不可中断，不能设置超时，锁释放情况少 不够灵活：加锁释放时机单一，每个锁仅有单一条件（对比之下，读写锁更加灵活） 无法知道是否成功获取到锁 注意点锁对象不能为空作用域不宜过大避免死锁 Lock与synchronized尽量避免使用，可以使用java.util.concurrent包下的各种工具类synchronized代码更简洁同步访问的各种情况 锁的优化锁的升级降级，偏斜锁，轻量级锁，重量级锁]]></content>
@@ -15,7 +99,10 @@
   <entry>
     <title><![CDATA[ehcache、memcache、redis比较]]></title>
     <url>%2F2018%2F12%2F28%2Fcaches-compare%2F</url>
-    <content type="text"><![CDATA[EhcacheJava’s Most Widely-Used Cache文档较齐全，但是有点慢。 MemcacheMemcached works on most Linux and BSD like systems. There is no official support for windows builds.相关百科 Redis文档 引用链接ehcache、memcache、redis三大缓存比较Spring+EhCache缓存实例]]></content>
+    <content type="text"><![CDATA[EhcacheJava’s Most Widely-Used Cache文档较齐全，但是网络访问有点慢。SpringMVC+mybatis+maven+Ehcache缓存实现 MemcacheMemcached works on most Linux and BSD like systems. There is no official support for windows builds.相关百科 Redis文档 引用链接ehcache、memcache、redis三大缓存比较Spring+EhCache缓存实例]]></content>
+      <categories>
+        <category>计算机软件</category>
+      </categories>
       <tags>
         <tag>java</tag>
         <tag>cache</tag>
@@ -25,6 +112,9 @@
     <title><![CDATA[PLSQL 基础]]></title>
     <url>%2F2018%2F12%2F28%2FPLSQL-basis%2F</url>
     <content type="text"><![CDATA[官方文档Database PL/SQL Language ReferencePL/SQL Packages and Types Reference 所有文档位置Oracle Database Documentation可选择对应版本的数据库并查看对应BookShelf 简介与HelloWorldProcedure Language/SQL是Oracle对SQL语言的过程化扩展，是面向过程的语言。不同数据库的SQL扩展：Oracle: PL/SQL;DB2: SQL/PL;SQL Server: Transac-SQL(T-SQL) 12345678910set serveroutput on-- 打开输出开关declare --说明部分begin -- 程序体 -- put_line里面的连接符是|| dbms_output.put_line('Hello World !');end;/ -- /只需要在SQL Plus中使用 Oracle默认事务级别是read Only所以需要在更改完成后commit;回滚使用rollback;可以在SQL Plus中使用命令desc 程序包名查看各个函数如: 123456789101112131415161718192021222324252627282930SQL&gt; desc dbms_outputPROCEDURE DISABLEPROCEDURE ENABLE参数名称 类型 输入/输出默认值?------------------------------ ----------------------- ------ -------- BUFFER_SIZE NUMBER(38) IN DEFAULTPROCEDURE GET_LINE参数名称 类型 输入/输出默认值?------------------------------ ----------------------- ------ -------- LINE VARCHAR2 OUT STATUS NUMBER(38) OUTPROCEDURE GET_LINES参数名称 类型 输入/输出默认值?------------------------------ ----------------------- ------ -------- LINES TABLE OF VARCHAR2(32767) OUT NUMLINES NUMBER(38) IN/OUTPROCEDURE GET_LINES参数名称 类型 输入/输出默认值?------------------------------ ----------------------- ------ -------- LINES DBMSOUTPUT_LINESARRAY OUT NUMLINES NUMBER(38) IN/OUTPROCEDURE NEW_LINEPROCEDURE PUT参数名称 类型 输入/输出默认值?------------------------------ ----------------------- ------ -------- A VARCHAR2 INPROCEDURE PUT_LINE参数名称 类型 输入/输出默认值?------------------------------ ----------------------- ------ -------- A VARCHAR2 IN 基础语法PL/SQL的程序结构 1234567declare--声明部分（变量，光标，例外）begin--语句序列（DML语句）exception--例外处理end; 定义基本变量类型：char,varchar2,date,number,boolean,long赋值运算:=和into（查询语句中使用）引用型变量var1 table.column%type记录型变量var2 table%rowtype，变量分量的引用var2.column if语句12345678910IF 条件 THEN 语句;语句; END IF;IF 条件 THEN 语句;语句;ELSE 语句;语句;END IF;IF 条件 THEN 语句;语句;ELSIF 条件 THEN 语句;ELSE 语句;语句;END IF; 12345678910set serveroutput onaccept num prompt'输入数字：'declarepn number(7,1) := &amp;num;beginif pn&lt;=0 then SYS.DBMS_OUTPUT.PUT_LINE('小于0');elsif pn=0 then SYS.DBMS_OUTPUT.PUT_LINE('等于0');else SYS.DBMS_OUTPUT.PUT_LINE('大于0');end if;end; 循环语句while循环while 条件 loop 循环体 end loop;loop循环loop EXIT when 条件1;[EXIT when 条件2;] 循环体 end loop;（常用，易于控制光标）for循环for I in m..n loop 循环体 end loop;如for p in 1..10 loop dbms_output.put_line(p) end loop; 光标Cursor相当于集合，因为Oracle没有数组集合语法CURSOR 光标名 [(参数名 数据类型[,参数名 数据类型]...)] IS SELECT 语句;打开光标open 光标名;取值fetch 光标名 into 变量名;关闭释放close 光标名;光标的属性：%found,%notfound,%isopen,%rowcount(影响的行数)光标数限制：默认一个会话300个show parameter cursor修改光标数alter system set open_cursors=400 scope=both(scope:both,memroy,spfile-数据库需重启) 带参数的光标：相当于高维数组的一维选择，定义和打开的时候带参数，定义带参数名，打开带具体参数。 例外Exception系统例外：no_data_found, too_many_rows, zero_divide, value_error, timeout_on_resource 123exception when no_data_found then 语句; when others then 语句; 自定义例外定义类型是exception的变量然后用raise抛出 Oracle的一些函数： NVL(expr1,expr2)如果expr1和expr2的数据类型一致，则：如果expr1为空(null),那么显示expr2，如果expr1的值不为空，则显示expr1。 NVL2(expr1,expr2, expr3)如果expr1不为NULL，返回expr2； expr1为NULL，返回expr3。expr2和expr3类型不同的话，expr3会转换为expr2的类型，转换不了，则报错。 NULLIF(expr1,expr2)如果expr1和expr2相等则返回空(NULL)，否则返回expr1。 coalesce(expr1, expr2, expr3,…,exprn)返回表达式中第一个非空表达式，如果都为空则返回空值。所有表达式必须是相同类型，或者可以隐式转换为相同的类型，否则报错。]]></content>
+      <categories>
+        <category>计算机软件</category>
+      </categories>
       <tags>
         <tag>database</tag>
       </tags>
@@ -33,6 +123,9 @@
     <title><![CDATA[oracle 基础操作]]></title>
     <url>%2F2018%2F12%2F28%2Foracle-basis%2F</url>
     <content type="text"><![CDATA[用户账号密码工具：SQL plussys,system,sysman:自己设定的密码scott:tiger错误警告密码7天后过期解决办法 12345678910111213141516SQL&gt;SELECT PROFILE FROM DBA_USERS WHERE USERNAME='SYS';PROFILE------------------------------DEFAULTSQL&gt;SQL&gt;SELECT RESOURCE_NAME,LIMIT FROM DBA_PROFILES WHERE PROFILE ='DEFAULT' AND RESOURCE_NAME='PASSWORD_LIFE_TIME';RESOURCE_NAME LIMIT------------------------------ ------------------------------PASSWORD_LIFE_TIME 180SQL&gt;alter profile &lt;profile_name&gt; limit password_life_time UNLIMITED; -- profile_name: DEFAULTSQL&gt;alter user `c##scott` identified by 123456; -- 如仍有警告则修改 用户登录：[username/password] [@server] [as sysdba|sysoper]如：system/root @orcl as sysdba登录之后切换换用户：[conn | connect] sys/root as sysdba查看当前用户：show user(非SQL语句可以不用分号结尾)用户信息可以使用sysdba身份查看dba_users字典启动和锁定用户账户:alter user username account lock/unlock; 表空间分类：永久表空间（存储表、视图等），临时表空间（数据库执行过程的临时空间），UNDO表空间（保存事务执行前的状态，可以进行回滚）dba_tablespaces,user_tablespaces数据字典 123456SQL&gt;select tablespace_name from dba_tablespaces/user_tablespaces;SYSTEM -- 系统表空间SYSAUX --Example辅助表空间UNDOTBS1 -- UNDO表空间TEMP --临时表空间USERS --用户表空间 dba_users,user_users数据字典oracle字符串使用单引号设置默认/临时表空间ALTER USER username DEFAULT|TEMPORARY TABLESPACE tablespace_name;创建表空间：CREATE [TEMPORARY] TABLESPACE tablespace_name TEMPFILE|DATAFILE &#39;test.dbf&#39; size 10m;其中test为文件名，10m为文件大小。文件名中可以设置文件路径否则在默认路径。查看数据文件位置： 123456789SQL&gt;select file_name from dba_data_files/dab_temp_files;FILE_NAME--------------------------------------------------------------------------------D:\APP\12148\VIRTUAL\ORADATA\ORCL\SYSTEM01.DBFD:\APP\12148\VIRTUAL\ORADATA\ORCL\SYSAUX01.DBFD:\APP\12148\VIRTUAL\ORADATA\ORCL\UNDOTBS01.DBFD:\APP\12148\VIRTUAL\ORADATA\ORCL\USERS01.DBFD:\APP\12148\VIRTUAL\ORADATA\ORCL\TEMP01.DBF 修改表空间状态ALTER TABLESPACE tablespace_name ONLINE|OFFLINE;查看状态select status from dba_tablespaces;表空间读写状态ALTER TABLESPACE tablespace_name READ ONLY | READ WRITE;（只读||可读写，都需要ONLINE状态下，ONLINE状态默认是READ WRITE，status的三种取值：OFFLINE、READ ONLY、ONLINE）增加数据文件ALTER TABLESPACE tablespace_name ADD DATAFILE &#39;xx.dbf&#39; SIZE xx;删除数据文件ALTER TABLESPACE tablespace_name DROP DATAFILE &#39;xx.dbf&#39;;（不能删除创建表空间时第一个数据文件）删除表空间DROP TABLESPACE tablespace_name [INCLUDING CONTENTS];（INCLUDING CONTENTS表示连同文件内容一起删除） 数据表数据类型：字符型，数值型，日期型，其他类型 字符型CHAR(n),NCHAR(n):NCHAR按照Unicode存储，汉字常使用此类型，charMaxn=2000,ncharMaxn=1000VARCHAR2(n),NVARCHAR2(n):不补充空格，不浪费空间，varcharMaxn=4000,nvarcharMaxn=2000 数值型NUMBER(p,s):p有效数字，s小数点后位数FLOAT(n):二进制 日期型DATE：范围-公元前4712年1月1日到公元9999年12月31日，精确到秒TIMESTAMP：精确到小数秒 其他类型(大对象)BLOB: 4GB,二进制CLOB: 4GB,字符串 创建表CREATE TABLE table_name(colum_name datatype,...);修改表： 添加字段ALTER TABLE table_name ADD column_name datatype; 修改字段数据类型ALTER TABLE table_name MODIFY column_name datatype; 删除字段ALTER TABLE table_name DROP COLUMN column_name; 修改字段名ALTER TABLE table_name RENAME COLUMN column_name TO new_name; 修改表名RENAME table_name TO new_name;截断表（清空数据）TRUNCATE TABLE table_name;删除表DROP TABLE table_name;添加数据INSERT INTO table_name(column1,column2,...) VALUES (value1,value2,...); 建表时复制CREATE TABLE table_new AS SELECT * FROM table_old;添加时复制INSERT INTO ... SELECT ... ;修改数据UPDATE table_name SET column1=&#39;...&#39;,column2=&#39;...&#39; [where conditions];删除数据DELETE FROM table_name [where conditions];(TRUNCATE速度更快) 约束查看约束信息user_constraints数据字典 非空约束NOT NULL非空约束没有名字使用MODIFYALTER TABLE table_name MODIFY column datatype NOT NULL; 主键约束PRIMARY KEY,表级约束CONSTRAINT constaint_name PRIMARY KEY(column_name1,...);修改表添加主键ALTER TABLE table_name ADD CONSTRAINT constaint_name PRIMARY KEY(column_name1,...);更改约束名称ALTER TABLE table_name CONSTRAINT old_name TO new_name;禁用/启用约束ALTER TABLE table_name DISABLE|ENABLE CONSTRAINT constaint_name;删除约束ALTER TABLE table_name DROP CONSTRAINT constaint_name;删除主键DROP PRIMARY KEY [CASCADE]; 外键约束FOREIGN KEY创建表时设置CREATE TABLE table1(column_name datatype REFERENCE table2(column_name),...);table2主表表级约束CONSTRAINT constaint_name FOREIGN KEY(column_name) REFERENCES table2(column_name) [ON DELETE CASCADE];主表删除，对应记录也被删除修改表时修改外键约束ALTER TABLE table_name ADD CONSTRAINT constaint_name FOREIGN KEY(column_name) REFERENCES table2(column_name) [ON DELETE CASCADE];禁用/启用约束，删除约束 唯一约束UNIQUE 检查约束CHECKCHECK(expressions)如salary number(10,0) check(salary &gt; 0) 查询语句SELECT [DISTINGCT] column_name,...|* FROM table_name [where conditions];SQL PLUS设置格式 别名COLUMN(COL) column_name HEADING new_name; a开头后面指定长度COL column_name FORMAT a10; 显示位数COL column_name FORMAT 999.9; 数字前面多个$符号COL column_name FORMAT $999.9; 清除格式COL column_name CLEAR;字段设置别名column_name [as] name; 逻辑运算符顺序 not &gt; and &gt; or比较运算符 &gt; 逻辑运算符模糊查询_%下划线代表任一字符，%代表任意多字符范围查询between ... and,in(...),not in()条件跳转case ... when ... then ... [else ...] end,case when ... then ... [else ...] enddecode函数decode(column_name,value1,result1,value2,result2,...,defaultValue)]]></content>
+      <categories>
+        <category>计算机软件</category>
+      </categories>
       <tags>
         <tag>database</tag>
       </tags>
@@ -41,6 +134,9 @@
     <title><![CDATA[tushare数据平台]]></title>
     <url>%2F2018%2F12%2F27%2Ftushare-data%2F</url>
     <content type="text"><![CDATA[tushare PRO版本https://tushare.pro/register?reg=225995顺记一下比较好用的爬虫框架 tushare有专门的python库，最近的pro版新增了http接口。参数使用json模式(POSTMAN则选择BODY-raw-JSON)POST https://api.tushare.pro 123456&#123; "api_name":"stock_basic", "token":"you token", "params":&#123;"liststatus":"L"&#125;, "fields":""&#125;]]></content>
+      <categories>
+        <category>数据平台</category>
+      </categories>
       <tags>
         <tag>finance</tag>
       </tags>
@@ -84,12 +180,12 @@
   <entry>
     <title><![CDATA[设计模式笔记]]></title>
     <url>%2F2018%2F12%2F24%2Fdesign-model%2F</url>
-    <content type="text"><![CDATA[概览根据模式的目的可分为：创建型，结构型和行为型 JavaScript设计模式相关书籍：《Learning JavaScript Design Patterns》 by Addy Osmani Java相关在线书籍和代码GitHub地址 面相对象设计原则1. 开闭原则一个软件实体应当对扩展开放，对修改关闭。即软件实体应尽量在不修改原有代码的情况下进行扩展。 2. 里氏替换原则所有引用基类（父类）的地方必须能透明地使用其子类的对象。 3. 依赖转换原则抽象不应该依赖于细节，细节应当依赖于抽象。 4. 单一职责原则一个类只负责一个功能领域中的相应职责。 5. 合成复用原则尽量使用对象组合，而不是继承来达到复用的目的。 6. 迪米特法则一个软件实体应当尽可能少地与其他实体发生相互作用。 7. 接口隔离原则使用多个专门的接口，而不使用单一的总接口，即客户端不应该依赖那些它不需要的接口。 使用频率高频率使用的模式: 工厂方法，抽象工厂，外观模式，迭代模式，观察者模式常用使用的模式：单例模式，适配器模式，代理模式，组合模式，策略模式，命令模式]]></content>
+    <content type="text"><![CDATA[概览根据模式的目的可分为：创建型，结构型和行为型 JavaScript设计模式相关书籍：《Learning JavaScript Design Patterns》 by Addy Osmani Java相关在线书籍和代码GitHub地址 《JavaScript设计模式与开发实践》最全知识点汇总大全 面相对象设计原则1. 开闭原则一个软件实体应当对扩展开放，对修改关闭。即软件实体应尽量在不修改原有代码的情况下进行扩展。 2. 里氏替换原则所有引用基类（父类）的地方必须能透明地使用其子类的对象。 3. 依赖转换原则抽象不应该依赖于细节，细节应当依赖于抽象。 4. 单一职责原则一个类只负责一个功能领域中的相应职责。 5. 合成复用原则尽量使用对象组合，而不是继承来达到复用的目的。 6. 迪米特法则一个软件实体应当尽可能少地与其他实体发生相互作用。 7. 接口隔离原则使用多个专门的接口，而不使用单一的总接口，即客户端不应该依赖那些它不需要的接口。 使用频率高频率使用的模式: 工厂方法，抽象工厂，外观模式，迭代模式，观察者模式常用使用的模式：单例模式，适配器模式，代理模式，组合模式，策略模式，命令模式 单例模式有几种写法]]></content>
       <categories>
         <category>计算机软件</category>
       </categories>
       <tags>
-        <tag>设计模式</tag>
+        <tag>designModel</tag>
       </tags>
   </entry>
   <entry>
