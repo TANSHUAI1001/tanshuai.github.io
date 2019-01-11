@@ -108,16 +108,18 @@
 
 
 
-  <meta name="description" content="记录生活和工作的日志">
-<meta property="og:type" content="website">
-<meta property="og:title" content="SHuai&#39;s journal">
-<meta property="og:url" content="https://tanshuai1001.github.io/tags/dart/index.html">
+  <meta name="description" content="目前关系数据库有六种范式：第一范式（1NF）、第二范式（2NF）、第三范式（3NF）、巴斯-科德范式（BCNF）、第四范式(4NF）和第五范式（5NF，又称完美范式）。设计关系数据库时，遵从不同的规范要求，设计出合理的关系型数据库，这些不同的规范要求被称为不同的范式，各种范式呈递次规范，越高的范式数据库冗余越小。满足最低要求的范式是第一范式（1NF）。在第一范式的基础上进一步满足更多规范要求的称">
+<meta name="keywords" content="database">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库范式">
+<meta property="og:url" content="https://tanshuai1001.github.io/2019/01/09/database-normalization/index.html">
 <meta property="og:site_name" content="SHuai&#39;s journal">
-<meta property="og:description" content="记录生活和工作的日志">
+<meta property="og:description" content="目前关系数据库有六种范式：第一范式（1NF）、第二范式（2NF）、第三范式（3NF）、巴斯-科德范式（BCNF）、第四范式(4NF）和第五范式（5NF，又称完美范式）。设计关系数据库时，遵从不同的规范要求，设计出合理的关系型数据库，这些不同的规范要求被称为不同的范式，各种范式呈递次规范，越高的范式数据库冗余越小。满足最低要求的范式是第一范式（1NF）。在第一范式的基础上进一步满足更多规范要求的称">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-09T10:32:42.383Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SHuai&#39;s journal">
-<meta name="twitter:description" content="记录生活和工作的日志">
+<meta name="twitter:title" content="数据库范式">
+<meta name="twitter:description" content="目前关系数据库有六种范式：第一范式（1NF）、第二范式（2NF）、第三范式（3NF）、巴斯-科德范式（BCNF）、第四范式(4NF）和第五范式（5NF，又称完美范式）。设计关系数据库时，遵从不同的规范要求，设计出合理的关系型数据库，这些不同的规范要求被称为不同的范式，各种范式呈递次规范，越高的范式数据库冗余越小。满足最低要求的范式是第一范式（1NF）。在第一范式的基础上进一步满足更多规范要求的称">
 
 
 
@@ -126,7 +128,7 @@
 
 
 
-  <link rel="canonical" href="https://tanshuai1001.github.io/tags/dart/"/>
+  <link rel="canonical" href="https://tanshuai1001.github.io/2019/01/09/database-normalization/"/>
 
 
 
@@ -136,7 +138,7 @@
   };
 </script>
 
-  <title>标签: dart | SHuai's journal</title>
+  <title>数据库范式 | SHuai's journal</title>
   
 
 
@@ -184,7 +186,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -260,7 +262,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -384,87 +386,317 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>dart<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tanshuai1001.github.io/2019/01/09/database-normalization/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tan Shuai">
+      <meta itemprop="description" content="记录生活和工作的日志">
+      <meta itemprop="image" content="/images/archer.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SHuai's journal">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/12/25/flutter-start/" itemprop="url">
-              
-                <span itemprop="name">flutter入门</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">数据库范式
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-12-25T08:30:44+08:00"
-              content="2018-12-25" >
-          12-25
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-09 09:55:32 / 修改时间：18:32:42" itemprop="dateCreated datePublished" datetime="2019-01-09T09:55:32+08:00">2019-01-09</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机软件/" itemprop="url" rel="index"><span itemprop="name">计算机软件</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>目前关系数据库有六种范式：第一范式（1NF）、第二范式（2NF）、第三范式（3NF）、巴斯-科德范式（BCNF）、第四范式(4NF）和第五范式（5NF，又称完美范式）。<br>设计关系数据库时，遵从不同的规范要求，设计出合理的关系型数据库，这些不同的规范要求被称为不同的范式，各种范式呈递次规范，越高的范式数据库冗余越小。<br>满足最低要求的范式是第一范式（1NF）。在第一范式的基础上进一步满足更多规范要求的称为第二范式（2NF），其余范式以次类推。一般说来，数据库只需满足第三范式(3NF）就行了。</p>
+</blockquote>
+<p>NF = Normal Form</p>
+<h1 id="第一范式（1NF）"><a href="#第一范式（1NF）" class="headerlink" title="第一范式（1NF）"></a>第一范式（1NF）</h1><p>在关系模型中，对于添加的一个规范要求，所有的域都应该是原子性的，即数据库表的每一列都是不可分割的原子数据项，而不能是集合，数组，记录等非原子数据项。即实体中的某个属性有多个值时，必须拆分为不同的属性。在符合第一范式（1NF）表中的每个域值只能是实体的一个属性或一个属性的一部分。简而言之，第一范式就是<strong>无重复的域</strong>。<br>在任何一个关系数据库中，第一范式（1NF）是对关系模式的设计基本要求，一般设计中都必须满足第一范式（1NF）。不过有些关系模型中突破了1NF的限制，这种称为非1NF的关系模型。换句话说，是否必须满足1NF的最低要求，主要依赖于所使用的关系模型。<br>（列不重复）</p>
+<h1 id="第二范式（2NF）"><a href="#第二范式（2NF）" class="headerlink" title="第二范式（2NF）"></a>第二范式（2NF）</h1><p>要求数据库表中的每个实例或记录必须可以被唯一地区分。要求实体的属性完全依赖于主关键字，不能存在仅依赖主关键字一部分的属性。如果存在仅依赖主关键字一部分的属性，那么这个属性和主关键字的这一部分应该分离出来形成一个新的实体，新实体与原实体之间是一对多的关系。为实现区分通常需要为表加上一个列，以存储各个实例的唯一标识。简而言之，第二范式就是在第一范式的基础上<strong>属性完全依赖于主键</strong>。<br>（行不重复）</p>
+<h1 id="第三范式（3NF）"><a href="#第三范式（3NF）" class="headerlink" title="第三范式（3NF）"></a>第三范式（3NF）</h1><blockquote>
+<p>A relation schema R is in <strong>third normal form</strong> with respect to a set $F$ of functional dependencies if, for all dependencies in $F^+$ of form $\alpha \to \beta$, where $\alpha \subseteq R$ and $\beta \subseteq R$, at least one of the following holds:</p>
+<ul>
+<li>$\alpha \to \beta$ is a trivial functional dependency(that is, $\beta \subseteq \alpha$).</li>
+<li>$\alpha$ is a superkey for schema R.</li>
+<li>Each attribute A in $\beta - \alpha$ is contained in a candidate key for R.</li>
+</ul>
+</blockquote>
+<p><em>A may be contained in different candidate key.</em></p>
+<p>所有数据元素不但要能惟一地被主关键字所标识,而且它们之间还必须相互独立,不存在其他的函数关系。也就是说，对于一个满足2NF的数据结构来说，表中有可能存在某些数据元素依赖于其他非关键字数据元素的现象,必须消除。<br>要求一个关系中<strong>不包含已在其它关系已包含的非主关键字信息</strong>。在2NF基础上消除传递依赖。</p>
+<a id="more"></a>
+<h1 id="巴斯-科德范式（BCNF）-Boyce-Codd-Normal-Form"><a href="#巴斯-科德范式（BCNF）-Boyce-Codd-Normal-Form" class="headerlink" title="巴斯-科德范式（BCNF）(Boyce-Codd Normal Form)"></a>巴斯-科德范式（BCNF）(Boyce-Codd Normal Form)</h1><blockquote>
+<p>A relation schema R is in BCNF with respect to a set $F$ of functional dependencies if, for all dependencies in $F^+$ of form $\alpha \to \beta$, where $\alpha \subseteq R$ and $\beta \subseteq R$, at least one of the following holds:</p>
+<ul>
+<li>$\alpha \to \beta$ is a trivial functional dependency(that is, $\beta \subseteq \alpha$).</li>
+<li>$\alpha$ is a superkey for schema R.</li>
+</ul>
+</blockquote>
+<p>（$F^+$是$F$的闭包，也是超集）<br>在3NF基础上消除对主码子集的依赖。它事实上是对第三范式的修正，使数据库冗余度更小。</p>
+<ol>
+<li>所有非主属性对每一个候选键都是完全函数依赖；</li>
+<li>所有的主属性对每一个不包含它的候选键，也是完全函数依赖；</li>
+<li>没有任何属性完全函数依赖于非候选键的任何一组属性。</li>
+</ol>
+<p><font color="red">完全函数依赖(Full functional dependency)：在一个关系中，若某个非主属性数据项依赖于全部关键字称之为完全函数依赖。</font><br>如果非主属性B函数依赖于构成某个候选关键字的一组主属性A，而且A的任何一个真子集不能被B函数依赖，则称B完全函数依赖于A（ $ A ^\underrightarrow{f} B $ ）；反之，若B函数能依赖于A的真子集，则称B部分函数依赖于A（ $ A ^\underrightarrow{p} B $ ）。</p>
+<blockquote>
+<p>例：成绩表（学号，课程号，成绩）关系中，完全函数依赖：$（学号，课程号）\rightarrow 成绩 $<br>$ 学号 \nrightarrow 成绩 $，$ 课程号 \nrightarrow 成绩 $，所以 $（学号，课程号）\rightarrow 成绩$ 是完全函数依赖</p>
+</blockquote>
+<p>在一个关系中，如一个属性是构成某一个候选关键字的属性集中的一个属性，则称它为主属性。</p>
+<h1 id="第四范式-4NF）"><a href="#第四范式-4NF）" class="headerlink" title="第四范式(4NF）"></a>第四范式(4NF）</h1><p>定义：关系模式$ R&lt;U，F&gt; \in 1NF $，如果对于R的每个非平凡多值依赖$ X \twoheadrightarrow Y $，X都含有候选码，则$ R\in 4NF $。<br>如果 $ R \in 4NF $，则 $ R \in BCNF $。<br>属性之间不允许有非平凡且<strong>非函数依赖</strong>的多值依赖。因为根据定义，对于每一个非平凡的多值依赖$ X \twoheadrightarrow Y $，X都含有候选码，于是就有$ X \rightarrow Y $，所以4NF所允许的非平凡的多值依赖实际上是<strong>函数依赖</strong>。</p>
+<p>函数依赖：某个属性集决定另一个属性集时，称另一属性集依赖于该属性集。（两个实例化的属性集X,Y，如果属性集X中的两个元组取值相同，必有对应的另外一个属性集Y中元组取值相同，则称Y函数依赖于X函数。）</p>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th style="text-align:center">B</th>
+<th style="text-align:center">C</th>
+<th style="text-align:right">D</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a1</td>
+<td style="text-align:center">b1</td>
+<td style="text-align:center">c1</td>
+<td style="text-align:right">d1</td>
+</tr>
+<tr>
+<td>a1</td>
+<td style="text-align:center">b2</td>
+<td style="text-align:center">c1</td>
+<td style="text-align:right">d2</td>
+</tr>
+<tr>
+<td>a2</td>
+<td style="text-align:center">b2</td>
+<td style="text-align:center">c2</td>
+<td style="text-align:right">d2</td>
+</tr>
+<tr>
+<td>a2</td>
+<td style="text-align:center">b3</td>
+<td style="text-align:center">c2</td>
+<td style="text-align:right">d3</td>
+</tr>
+<tr>
+<td>a3</td>
+<td style="text-align:center">b3</td>
+<td style="text-align:center">c2</td>
+<td style="text-align:right">d4</td>
+</tr>
+</tbody>
+</table>
+<p>这个关系表中：$ A \to C $，但是 $ C \nrightarrow A $ （即C依赖于A，而A不依赖与C）。</p>
+<p>多值依赖(multivalued dependencies)：在关系模式中，函数依赖不能表示属性值之间的一对多联系，这些属性之间有些虽然没有直接关系，但存在间接的关系，把没有直接联系、但有间接的联系称为多值依赖的数据依赖。</p>
+<p>平凡依赖：</p>
+<blockquote>
+<p>In general, a functional dependency of form $\alpha \to \beta$ is <strong>trivial</strong> if $\beta \subseteq \alpha$.</p>
+</blockquote>
+<h1 id="第五范式（5NF，又称完美范式）"><a href="#第五范式（5NF，又称完美范式）" class="headerlink" title="第五范式（5NF，又称完美范式）"></a>第五范式（5NF，又称完美范式）</h1><p>定义：如果关系模式R中的每一个连接依赖均由R的候选码所隐含，则称此关系模式符合第五范式。</p>
+<h1 id="键（Key）"><a href="#键（Key）" class="headerlink" title="键（Key）"></a>键（Key）</h1><p>超键（super key）：在关系中能惟一标识元素属性的集称为关系模式的超键。</p>
+<blockquote>
+<p>Let R be a relation schema. A subset K of R is a <strong>superkey</strong> if, in any legal relation r(R), for all pairs $t_1$ and $t_2$ of tuples in r such that $t_1 \neq t_2$, then $t_1[K] \neq t_2[K]$.<br>That is no two tuples in any legal relation r(R) have the same value on attribute set K.</p>
+</blockquote>
+<p>候选键：（Candidate Key）：不含有多余属性的超键称为候选键。其真子集不再是超键。</p>
+<p>主键（Primary Key)：用户选作元组标识的候选键为主键。主关键字是可选的，是从候选关键字挑选出来作表的行的唯一标识。</p>
+<p>外键（Froeign Key）:如果模式R中的属性k是其他模式的主键，那么k在模式R中称为外键。</p>
+<h2 id="候选键"><a href="#候选键" class="headerlink" title="候选键"></a>候选键</h2><p>在关系模型中，候选键又称候选码（candidate key），是某个关系变量的一组属性所组成的集合，它需要同时满足下列两个条件：</p>
+<ol>
+<li>这个属性集合始终能够确保在关系中能唯一标识元组。</li>
+<li>在这个属性集合中找不出合适的真子集能够满足条件。</li>
+</ol>
+<p>满足第一个条件的属性集合称为超键，因此我们也可以把候选键定义为”最小超键”，即不含有多余属性的超键。</p>
+<h1 id="范式分解"><a href="#范式分解" class="headerlink" title="范式分解"></a>范式分解</h1><p><a href="https://blog.csdn.net/xingchenhy/article/details/71424906" target="_blank" rel="noopener">关系模式的分解与范式</a></p>
+<blockquote>
+<p>现有的模式可能会存在一些数据增删改的弊端，比如说：数据冗余太大，更新异常，插入异常，删除异常。因此为了完善数据库的增删改查的功能，需要寻找一种等价的关系模式，使得以上弊端得以解决。<br>这种等价关系需要满足两个条件：1》保持无损连接性。解释：在分解之后，n个分解关系通过自然连接（自然连接是在等值连接的基础上去掉相同的列，如果自然连接中找不到等值信息那么自然连接就等价于笛卡尔积）形成的二维表和没分解之前关系的二维表是等价的（元组没有增加也没有减少），则称这种分解形成的关系模式保持无损连接性；<br>2》保持函数依赖性。解释：若分解之后的关系模式中仍然存在和没分解之前属性的函数依赖关系则称保持分解的函数依赖性。</p>
+</blockquote>
+<p>无损判断：</p>
+<blockquote>
+<p>if $R_1 \cap R_2$ forms a superkey of either $R_1$ or $R_2$.</p>
+</blockquote>
+<p>也即：</p>
+<blockquote>
+<p>at least one of the following functional dependencies is in $F^+$:</p>
+<ul>
+<li>$R_1 \cap R_2 \to R_1$</li>
+<li>$R_1 \cap R_2 \to R_2$</li>
+</ul>
+</blockquote>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/database/" rel="tag"># database</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/06/java-web-frameworks/" rel="next" title="java web 应用框架">
+                <i class="fa fa-chevron-left"></i> java web 应用框架
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -485,8 +717,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -631,6 +872,22 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一范式（1NF）"><span class="nav-number">1.</span> <span class="nav-text">第一范式（1NF）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二范式（2NF）"><span class="nav-number">2.</span> <span class="nav-text">第二范式（2NF）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三范式（3NF）"><span class="nav-number">3.</span> <span class="nav-text">第三范式（3NF）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#巴斯-科德范式（BCNF）-Boyce-Codd-Normal-Form"><span class="nav-number">4.</span> <span class="nav-text">巴斯-科德范式（BCNF）(Boyce-Codd Normal Form)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四范式-4NF）"><span class="nav-number">5.</span> <span class="nav-text">第四范式(4NF）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第五范式（5NF，又称完美范式）"><span class="nav-number">6.</span> <span class="nav-text">第五范式（5NF，又称完美范式）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#键（Key）"><span class="nav-number">7.</span> <span class="nav-text">键（Key）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#候选键"><span class="nav-number">7.1.</span> <span class="nav-text">候选键</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#范式分解"><span class="nav-number">8.</span> <span class="nav-text">范式分解</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -791,6 +1048,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script src="/js/src/post-details.js?v=6.6.0"></script>
+
+
 
   
 

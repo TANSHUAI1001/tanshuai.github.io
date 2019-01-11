@@ -405,6 +405,187 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tanshuai1001.github.io/2019/01/09/database-normalization/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tan Shuai">
+      <meta itemprop="description" content="记录生活和工作的日志">
+      <meta itemprop="image" content="/images/archer.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SHuai's journal">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/09/database-normalization/" class="post-title-link" itemprop="https://tanshuai1001.github.io/index.html">数据库范式</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-09 09:55:32 / 修改时间：18:32:42" itemprop="dateCreated datePublished" datetime="2019-01-09T09:55:32+08:00">2019-01-09</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机软件/" itemprop="url" rel="index"><span itemprop="name">计算机软件</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>目前关系数据库有六种范式：第一范式（1NF）、第二范式（2NF）、第三范式（3NF）、巴斯-科德范式（BCNF）、第四范式(4NF）和第五范式（5NF，又称完美范式）。<br>设计关系数据库时，遵从不同的规范要求，设计出合理的关系型数据库，这些不同的规范要求被称为不同的范式，各种范式呈递次规范，越高的范式数据库冗余越小。<br>满足最低要求的范式是第一范式（1NF）。在第一范式的基础上进一步满足更多规范要求的称为第二范式（2NF），其余范式以次类推。一般说来，数据库只需满足第三范式(3NF）就行了。</p>
+</blockquote>
+<p>NF = Normal Form</p>
+<h1 id="第一范式（1NF）"><a href="#第一范式（1NF）" class="headerlink" title="第一范式（1NF）"></a>第一范式（1NF）</h1><p>在关系模型中，对于添加的一个规范要求，所有的域都应该是原子性的，即数据库表的每一列都是不可分割的原子数据项，而不能是集合，数组，记录等非原子数据项。即实体中的某个属性有多个值时，必须拆分为不同的属性。在符合第一范式（1NF）表中的每个域值只能是实体的一个属性或一个属性的一部分。简而言之，第一范式就是<strong>无重复的域</strong>。<br>在任何一个关系数据库中，第一范式（1NF）是对关系模式的设计基本要求，一般设计中都必须满足第一范式（1NF）。不过有些关系模型中突破了1NF的限制，这种称为非1NF的关系模型。换句话说，是否必须满足1NF的最低要求，主要依赖于所使用的关系模型。<br>（列不重复）</p>
+<h1 id="第二范式（2NF）"><a href="#第二范式（2NF）" class="headerlink" title="第二范式（2NF）"></a>第二范式（2NF）</h1><p>要求数据库表中的每个实例或记录必须可以被唯一地区分。要求实体的属性完全依赖于主关键字，不能存在仅依赖主关键字一部分的属性。如果存在仅依赖主关键字一部分的属性，那么这个属性和主关键字的这一部分应该分离出来形成一个新的实体，新实体与原实体之间是一对多的关系。为实现区分通常需要为表加上一个列，以存储各个实例的唯一标识。简而言之，第二范式就是在第一范式的基础上<strong>属性完全依赖于主键</strong>。<br>（行不重复）</p>
+<h1 id="第三范式（3NF）"><a href="#第三范式（3NF）" class="headerlink" title="第三范式（3NF）"></a>第三范式（3NF）</h1><blockquote>
+<p>A relation schema R is in <strong>third normal form</strong> with respect to a set $F$ of functional dependencies if, for all dependencies in $F^+$ of form $\alpha \to \beta$, where $\alpha \subseteq R$ and $\beta \subseteq R$, at least one of the following holds:</p>
+<ul>
+<li>$\alpha \to \beta$ is a trivial functional dependency(that is, $\beta \subseteq \alpha$).</li>
+<li>$\alpha$ is a superkey for schema R.</li>
+<li>Each attribute A in $\beta - \alpha$ is contained in a candidate key for R.</li>
+</ul>
+</blockquote>
+<p><em>A may be contained in different candidate key.</em></p>
+<p>所有数据元素不但要能惟一地被主关键字所标识,而且它们之间还必须相互独立,不存在其他的函数关系。也就是说，对于一个满足2NF的数据结构来说，表中有可能存在某些数据元素依赖于其他非关键字数据元素的现象,必须消除。<br>要求一个关系中<strong>不包含已在其它关系已包含的非主关键字信息</strong>。在2NF基础上消除传递依赖。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/01/09/database-normalization/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://tanshuai1001.github.io/2019/01/06/java-web-frameworks/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -819,7 +1000,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-01-06 16:04:11" itemprop="dateModified" datetime="2019-01-06T16:04:11+08:00">2019-01-06</time>
+                <time title="修改时间：2019-01-09 09:54:42" itemprop="dateModified" datetime="2019-01-09T09:54:42+08:00">2019-01-09</time>
               
             
           </span>
@@ -1454,7 +1635,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tanshuai1001.github.io/2019/01/01/uml-graphs/">
+    <link itemprop="mainEntityOfPage" href="https://tanshuai1001.github.io/2019/01/01/uml-diagram/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Tan Shuai">
@@ -1474,7 +1655,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/01/01/uml-graphs/" class="post-title-link" itemprop="https://tanshuai1001.github.io/index.html">uml graphs</a>
+                <a href="/2019/01/01/uml-diagram/" class="post-title-link" itemprop="https://tanshuai1001.github.io/index.html">uml diagram</a>
               
             
           </h1>
@@ -1516,7 +1697,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-01-02 21:59:22" itemprop="dateModified" datetime="2019-01-02T21:59:22+08:00">2019-01-02</time>
+                <time title="修改时间：2019-01-11 14:08:27" itemprop="dateModified" datetime="2019-01-11T14:08:27+08:00">2019-01-11</time>
               
             
           </span>
@@ -1570,189 +1751,17 @@
         
           
             <p>用例图、类图、序列图、状态图、活动图、通信图、构件图、部署图以及复合结构图</p>
-
+<h1 id="用例图（use-case-diagram）"><a href="#用例图（use-case-diagram）" class="headerlink" title="用例图（use case diagram）"></a>用例图（use case diagram）</h1><p>用例图由参与者（Actor）、用例（Use Case）、系统边界、箭头组成，用画图的方法来完成。</p>
+<ol>
+<li>参与者不是特指人，是指系统以外的，在使用系统或与系统交互中所扮演的角色。</li>
+<li>用例是对包括变量在内的一组动作序列的描述，系统执行这些动作，并产生传递特定参与者的价值的可观察结果。</li>
+<li>系统边界是用来表示正在建模系统的边界。边界内表示系统的组成部分，边界外表示系统外部。系统边界在画图中用方框来表示，同时附上系统的名称，参与者画在边界的外面，用例画在边界里面。</li>
+<li>箭头用来表示参与者和系统通过相互发送信号或消息进行交互的关联关系。箭头尾部用来表示启动交互的一方，箭头头部用来表示被启动的一方，其中用例总是要由参与者来启动。</li>
+</ol>
+<p><img src="/2019/01/01/uml-diagram/usercase.jpg" alt="用例图"></p>
+<h2 id="用例图所包含的的关系"><a href="#用例图所包含的的关系" class="headerlink" title="用例图所包含的的关系"></a><a href="https://www.cnblogs.com/xiaolongbao-lzh/p/4590897.html" target="_blank" rel="noopener">用例图所包含的的关系</a></h2><p>关联(Association)、泛化Inheritance)、包含(Include)、扩展(Extend)<br>实线、实线空心箭头、<code>虚线箭头&lt;&lt;include&gt;&gt;</code>、<code>虚线箭头&lt;&lt;extend&gt;&gt;</code></p>
+<h1 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h1><h1 id="序列图"><a href="#序列图" class="headerlink" title="序列图"></a>序列图</h1><h1 id="状态图"><a href="#状态图" class="headerlink" title="状态图"></a>状态图</h1><h1 id="活动图"><a href="#活动图" class="headerlink" title="活动图"></a>活动图</h1><h1 id="通信图"><a href="#通信图" class="headerlink" title="通信图"></a>通信图</h1><h1 id="构件图"><a href="#构件图" class="headerlink" title="构件图"></a>构件图</h1><h1 id="部署图"><a href="#部署图" class="headerlink" title="部署图"></a>部署图</h1><h1 id="复合结构图"><a href="#复合结构图" class="headerlink" title="复合结构图"></a>复合结构图</h1>
           
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tanshuai1001.github.io/2018/12/29/spring-aop-concept/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Tan Shuai">
-      <meta itemprop="description" content="记录生活和工作的日志">
-      <meta itemprop="image" content="/images/archer.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SHuai's journal">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/12/29/spring-aop-concept/" class="post-title-link" itemprop="https://tanshuai1001.github.io/index.html">spring aop 概念</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-12-29 21:57:47" itemprop="dateCreated datePublished" datetime="2018-12-29T21:57:47+08:00">2018-12-29</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-01-05 22:29:55" itemprop="dateModified" datetime="2019-01-05T22:29:55+08:00">2019-01-05</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机软件/" itemprop="url" rel="index"><span itemprop="name">计算机软件</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h1><p>编程范式：面向过程，面向对象，函数式编程，事件驱动编程，面向切面<br>面向切面解决特定问题是面向对象的补充，使非功能性需求与功能性需求分离<br>应用：权限控制，缓存控制，事务控制，审计日志，性能监控，分布式追踪，异常处理</p>
-<blockquote>
-<p><a href="https://mp.weixin.qq.com/s/tAjTkXMbbqWE1XijeVCN7g" target="_blank" rel="noopener">Spring AOP是什么?你都拿它做什么?</a></p>
-</blockquote>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/12/29/spring-aop-concept/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-         
-          <!--/noindex-->
         
       
     </div>
@@ -1843,7 +1852,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2493,6 +2502,8 @@
   
   
     
+      
+        
       
     
       

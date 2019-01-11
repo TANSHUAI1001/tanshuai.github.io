@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://tanshuai1001.github.io/2019/01/01/uml-diagram/</loc>
+    
+    <lastmod>2019-01-11T06:08:27.616Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanshuai1001.github.io/2019/01/09/database-normalization/</loc>
+    
+    <lastmod>2019-01-09T10:32:42.383Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanshuai1001.github.io/2018/03/04/hello-world/</loc>
+    
+    <lastmod>2019-01-09T09:52:33.981Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanshuai1001.github.io/2019/01/04/JVM-optimizing/</loc>
+    
+    <lastmod>2019-01-09T01:54:42.230Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://tanshuai1001.github.io/about/index.html</loc>
+    
+    <lastmod>2019-01-08T11:19:04.542Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://tanshuai1001.github.io/2019/01/04/big-data-basis/</loc>
     
     <lastmod>2019-01-07T12:48:12.339Z</lastmod>
@@ -19,20 +54,6 @@
     <loc>https://tanshuai1001.github.io/2019/01/06/java-web-frameworks/</loc>
     
     <lastmod>2019-01-07T06:12:32.327Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanshuai1001.github.io/2019/01/04/JVM-optimizing/</loc>
-    
-    <lastmod>2019-01-06T08:04:11.232Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanshuai1001.github.io/about/index.html</loc>
-    
-    <lastmod>2019-01-06T07:45:54.416Z</lastmod>
     
   </url>
   
@@ -61,13 +82,6 @@
     <loc>https://tanshuai1001.github.io/2019/01/04/spring-MVC-webflux/</loc>
     
     <lastmod>2019-01-04T03:59:43.559Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanshuai1001.github.io/2019/01/01/uml-graphs/</loc>
-    
-    <lastmod>2019-01-02T13:59:22.570Z</lastmod>
     
   </url>
   
@@ -124,13 +138,6 @@
     <loc>https://tanshuai1001.github.io/2018/05/13/mysql-frequently-used/</loc>
     
     <lastmod>2018-12-28T08:09:32.928Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://tanshuai1001.github.io/2018/03/04/hello-world/</loc>
-    
-    <lastmod>2018-12-28T06:37:56.197Z</lastmod>
     
   </url>
   
