@@ -405,6 +405,195 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://tanshuai1001.github.io/2019/01/15/jvm-memory-manage/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tan Shuai">
+      <meta itemprop="description" content="记录生活和工作的日志">
+      <meta itemprop="image" content="/images/archer.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SHuai's journal">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/15/jvm-memory-manage/" class="post-title-link" itemprop="https://tanshuai1001.github.io/index.html">jvm 自动内存管理机制</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-15 21:47:36" itemprop="dateCreated datePublished" datetime="2019-01-15T21:47:36+08:00">2019-01-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-01-24 10:52:32" itemprop="dateModified" datetime="2019-01-24T10:52:32+08:00">2019-01-24</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机软件/" itemprop="url" rel="index"><span itemprop="name">计算机软件</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h1><p>运行时数据区域包括 方法区（Method Area）、虚拟机栈（VM Stack）、本地方法栈（Native Method Stack）、堆（Heap）、程序计数器（Program Counter Register）</p>
+<h2 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h2><p><strong>线程私有</strong><br>较小的内存空间，可看作当前线程所执行的字节码的行号指示器。<br>如果线程正在执行Java方法，这个计数器记录的是正在执行的虚拟机字节码指令地址；如果正在执行的是Native方法则这个计数器值为空（undefined）。此内存区域是唯一一个在Java虚拟机规范中没有规定任何OutOfMemoryError情况的区域。</p>
+<h2 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a>Java虚拟机栈</h2><p><strong>线程私有</strong><br>生命周期与线程相同，每个方法在执行的同事会创建一个栈帧（Stack Frame）用于储存<strong>局部变量表</strong>、操作数栈、动态链接、方法出口等信息。<br>局部变量表存放了编译期可知的各种基本数据类型（boolean, byte, char, short, int, float, long, double）、对象引用（Reference）类型和ReturnAddress类型（指向了一条字节码指令的地址）。<br>StackOverflowError OutOfMemoryError</p>
+<h2 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h2><p><strong>线程私有</strong><br>与Java虚拟机栈很相似，一个执行Java方法服务，另一个执行本地方法服务。</p>
+<h2 id="Java堆"><a href="#Java堆" class="headerlink" title="Java堆"></a>Java堆</h2><p><strong>线程共享</strong><br>一般来说是内存最大的一块。此内存区域的唯一目的是存放对象实例。（几乎所有的对象实例）JIT（Just-In-Time）编译器–即时编译器有些微妙。<br>Java堆又是也称作GC堆，是垃圾收集器管理的主要区域。线程共享的Java堆可能划分出多个线程私有的分配缓冲区（Thread Local Allocation Buffer，TLAB），储存的仍然是对象实例。</p>
+<h2 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h2><p><strong>线程共享</strong><br>用于存储已被虚拟机加载的<strong>类信息、常量、静态变量</strong>、即时编译器编译后的代码等数据。<br><strong>运行时常量池（Runtime Constant Pool）</strong> 是方法区的一部分。常量池（Constant Pool Table）用于存储编译期生成的各种字面量和符号引用。相对于 <strong>Class文件常量池</strong> 具备动态性 – String的Intern()方法。</p>
+<h2 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a>直接内存</h2><p>直接内存（Direct Memory）并不是虚拟机运行时数据区的一部分。<br>JDK1.4的NIO（new input/output）引入一种基于通道（Chanel）与缓冲区（Buffer）的IO方式，它可以使用Native函数库直接分配堆外内存，然后通过一个储存在Java堆忠的DirectByteBuffer对象作为这块内存的引用进行操作。</p>
+<h1 id="hotspot虚拟机对象"><a href="#hotspot虚拟机对象" class="headerlink" title="hotspot虚拟机对象"></a>hotspot虚拟机对象</h1><h2 id="类加载的时机"><a href="#类加载的时机" class="headerlink" title="类加载的时机"></a>类加载的时机</h2><p>生命周期：加载Loading、（验证Verification、准备Preparation、解析Resolution）=（连接Linking）、初始化Initialization、使用Using、卸载Unloading</p>
+<p>验证的主要目的是保证加载进来的Class文件的字节流包含的信息符合虚拟机的当前的要求，不会有危害自身的数据存在。<br>准备阶段主要是类变量进行分配内存和数据的初始化阶段。<br>解析是将常量池中的符号引用转化为直接引用的过程。<br> 符号引用：符号引用是以一组符号来描述所引用的目标，符号可以是任何的字面形式的字面量，只要不会出现冲突能够定位到就行。布局和内存无关。<br> 直接引用：是指向目标的指针，偏移量或者能够直接定位的句柄。该引用是和内存中的而布局有关的，并且一定加载进来的。</p>
+<p>初始化阶段虚拟机规范严格规定有且只有5种情况必须立即对类初始化：</p>
+<ol>
+<li>遇到new, getstatic, putstatic, invokestatic字节码指令</li>
+<li>reflect反射调用</li>
+<li>初始化一个类，先触发初始化其父类</li>
+<li>虚拟机启动时，指定一个要执行的主类（包含main函数），初始化这个主类</li>
+<li>JDK 1.7的动态语言支持，java.lang.invoke.MethodHandle</li>
+</ol>
+<p>new：使用new关键字实例化对象。<br>getstatic：读引用一个类的静态字段。<br>putstatic：写引用一个类的静态字段。<br>invokestatic：调用一个类的静态方法。</p>
+<h1 id="OutOfMemoryError异常"><a href="#OutOfMemoryError异常" class="headerlink" title="OutOfMemoryError异常"></a>OutOfMemoryError异常</h1>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://tanshuai1001.github.io/2019/01/09/database-normalization/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -648,7 +837,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-01-07 14:12:32" itemprop="dateModified" datetime="2019-01-07T14:12:32+08:00">2019-01-07</time>
+                <time title="修改时间：2019-01-23 13:38:34" itemprop="dateModified" datetime="2019-01-23T13:38:34+08:00">2019-01-23</time>
               
             
           </span>
@@ -702,7 +891,7 @@
         
           
             <h1 id="SpringMVC-vs-Struts2"><a href="#SpringMVC-vs-Struts2" class="headerlink" title="SpringMVC vs. Struts2"></a>SpringMVC vs. Struts2</h1><h2 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a><a href="/2019/01/04/spring-MVC-webflux">SpringMVC</a></h2><h2 id="Struts2"><a href="#Struts2" class="headerlink" title="Struts2"></a>Struts2</h2><p>Apache软件基金会开源项目，基于MVC设计模式的应用程序框架<br>MVC模式：JSP+JavaBean=Model1,JSP+Servlet+JavaBean=Model2(最典型的的MVC)</p>
-<h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h1 id="Hibernate-vs-Mybatis-vs-SpringDataJPA"><a href="#Hibernate-vs-Mybatis-vs-SpringDataJPA" class="headerlink" title="Hibernate vs. Mybatis vs. SpringDataJPA"></a>Hibernate vs. Mybatis vs. SpringDataJPA</h1><p>Java Persistence API (JPA) 是一种规范。Hibernate就是实现了JPA接口的ORM框架。<br>Spirng data jpa是spring提供的一套简化JPA开发的框架，按照约定好的【方法命名规则】写dao层接口，就可以在不写接口实现的情况下，实现对数据库的访问和操作。同时提供了很多除了CRUD之外的功能，如分页、排序、复杂查询等。Spring Data JPA 可以理解为 JPA 规范的再次封装抽象，底层还是使用了 Hibernate 的 JPA 技术实现。</p>
+<h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h1 id="Hibernate-vs-Mybatis-vs-SpringDataJPA"><a href="#Hibernate-vs-Mybatis-vs-SpringDataJPA" class="headerlink" title="Hibernate vs. Mybatis vs. SpringDataJPA"></a>Hibernate vs. Mybatis vs. SpringDataJPA</h1><p>Java Persistence API (JPA) 是一种规范。Hibernate就是实现了JPA接口的ORM(Object Relational Mapping)框架。<br>Spirng data jpa是spring提供的一套简化JPA开发的框架，按照约定好的【方法命名规则】写dao层接口，就可以在不写接口实现的情况下，实现对数据库的访问和操作。同时提供了很多除了CRUD之外的功能，如分页、排序、复杂查询等。Spring Data JPA 可以理解为 JPA 规范的再次封装抽象，底层还是使用了 Hibernate 的 JPA 技术实现。</p>
 <h2 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a><a href="http://www.mybatis.org/mybatis-3/zh/index.html" target="_blank" rel="noopener">Mybatis</a></h2><p>支持定制化 SQL、存储过程以及高级映射。MyBatis 避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集。</p>
 <h1 id="Springboot"><a href="#Springboot" class="headerlink" title="Springboot"></a>Springboot</h1><h1 id="Shiro-vs-SpringSecurity"><a href="#Shiro-vs-SpringSecurity" class="headerlink" title="Shiro vs. SpringSecurity"></a>Shiro vs. SpringSecurity</h1>
           
@@ -938,7 +1127,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tanshuai1001.github.io/2019/01/04/JVM-optimizing/">
+    <link itemprop="mainEntityOfPage" href="https://tanshuai1001.github.io/2019/01/04/jvm-optimizing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Tan Shuai">
@@ -958,7 +1147,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/01/04/JVM-optimizing/" class="post-title-link" itemprop="https://tanshuai1001.github.io/index.html">JVM调优</a>
+                <a href="/2019/01/04/jvm-optimizing/" class="post-title-link" itemprop="https://tanshuai1001.github.io/index.html">JVM调优</a>
               
             
           </h1>
@@ -1000,7 +1189,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-01-09 09:54:42" itemprop="dateModified" datetime="2019-01-09T09:54:42+08:00">2019-01-09</time>
+                <time title="修改时间：2019-01-18 00:08:46" itemprop="dateModified" datetime="2019-01-18T00:08:46+08:00">2019-01-18</time>
               
             
           </span>
@@ -1063,7 +1252,7 @@
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/01/04/JVM-optimizing/#more" rel="contents">
+              <a class="btn" href="/2019/01/04/jvm-optimizing/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1520,12 +1709,24 @@
                 
               
 
-              <time title="创建时间：2019-01-04 11:51:59 / 修改时间：11:59:43" itemprop="dateCreated datePublished" datetime="2019-01-04T11:51:59+08:00">2019-01-04</time>
+              <time title="创建时间：2019-01-04 11:51:59" itemprop="dateCreated datePublished" datetime="2019-01-04T11:51:59+08:00">2019-01-04</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-01-23 14:53:33" itemprop="dateModified" datetime="2019-01-23T14:53:33+08:00">2019-01-23</time>
               
             
           </span>
@@ -1579,188 +1780,14 @@
         
           
             <p><a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html" target="_blank" rel="noopener">Web on Servlet Stack</a><br><a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html" target="_blank" rel="noopener">Web on Reactive Stack</a><br><a href="https://www.cnblogs.com/tengyunhao/p/7518481.html" target="_blank" rel="noopener">[Java] SpringMVC工作原理之一：DispatcherServlet</a><br><a href="https://www.cnblogs.com/tengyunhao/p/7658952.html" target="_blank" rel="noopener">[Java] SpringMVC工作原理之二：HandlerMapping和HandlerAdapter</a><br><a href="https://www.cnblogs.com/tengyunhao/p/7663696.html" target="_blank" rel="noopener">[Java] SpringMVC工作原理之三：ViewResolver</a><br><a href="https://www.cnblogs.com/tengyunhao/p/7670293.html" target="_blank" rel="noopener">[Java] SpringMVC工作原理之四：MultipartResolver</a></p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>DispatcherServlet 主要用作职责调度工作，本身主要用于控制流程，主要职责如下：</p>
+<p>1、文件上传解析，如果请求类型是 multipart 将通过 MultipartResolver 进行文件上传解析；</p>
+<p>2、通过 HandlerMapping，将请求映射到处理器（返回一个 HandlerExecutionChain ，它包括一个处理器、多个</p>
+<p>HandlerInterceptor 拦截器）；</p>
+<p>3、 通过 HandlerAdapter 支持多种类型的处理器(HandlerExecutionChain 中的处理器)；通过 ViewResolver 解析逻辑视图名到具体视图实现；本地化解析；渲染具体的视图等；</p>
+<p>4、如果执行过程中遇到异常将交给 HandlerExceptionResolver 来解析。</p>
+<p>使用HandlerMapping来找到并保存url请求和处理函数间的mapping关系，通过HandlerAdapter来实际调用处理函数。</p>
 
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://tanshuai1001.github.io/2019/01/01/uml-diagram/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Tan Shuai">
-      <meta itemprop="description" content="记录生活和工作的日志">
-      <meta itemprop="image" content="/images/archer.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SHuai's journal">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/01/01/uml-diagram/" class="post-title-link" itemprop="https://tanshuai1001.github.io/index.html">uml diagram</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-01 23:26:30" itemprop="dateCreated datePublished" datetime="2019-01-01T23:26:30+08:00">2019-01-01</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-01-11 14:08:27" itemprop="dateModified" datetime="2019-01-11T14:08:27+08:00">2019-01-11</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机软件/" itemprop="url" rel="index"><span itemprop="name">计算机软件</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>用例图、类图、序列图、状态图、活动图、通信图、构件图、部署图以及复合结构图</p>
-<h1 id="用例图（use-case-diagram）"><a href="#用例图（use-case-diagram）" class="headerlink" title="用例图（use case diagram）"></a>用例图（use case diagram）</h1><p>用例图由参与者（Actor）、用例（Use Case）、系统边界、箭头组成，用画图的方法来完成。</p>
-<ol>
-<li>参与者不是特指人，是指系统以外的，在使用系统或与系统交互中所扮演的角色。</li>
-<li>用例是对包括变量在内的一组动作序列的描述，系统执行这些动作，并产生传递特定参与者的价值的可观察结果。</li>
-<li>系统边界是用来表示正在建模系统的边界。边界内表示系统的组成部分，边界外表示系统外部。系统边界在画图中用方框来表示，同时附上系统的名称，参与者画在边界的外面，用例画在边界里面。</li>
-<li>箭头用来表示参与者和系统通过相互发送信号或消息进行交互的关联关系。箭头尾部用来表示启动交互的一方，箭头头部用来表示被启动的一方，其中用例总是要由参与者来启动。</li>
-</ol>
-<p><img src="/2019/01/01/uml-diagram/usercase.jpg" alt="用例图"></p>
-<h2 id="用例图所包含的的关系"><a href="#用例图所包含的的关系" class="headerlink" title="用例图所包含的的关系"></a><a href="https://www.cnblogs.com/xiaolongbao-lzh/p/4590897.html" target="_blank" rel="noopener">用例图所包含的的关系</a></h2><p>关联(Association)、泛化Inheritance)、包含(Include)、扩展(Extend)<br>实线、实线空心箭头、<code>虚线箭头&lt;&lt;include&gt;&gt;</code>、<code>虚线箭头&lt;&lt;extend&gt;&gt;</code></p>
-<h1 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h1><h1 id="序列图"><a href="#序列图" class="headerlink" title="序列图"></a>序列图</h1><h1 id="状态图"><a href="#状态图" class="headerlink" title="状态图"></a>状态图</h1><h1 id="活动图"><a href="#活动图" class="headerlink" title="活动图"></a>活动图</h1><h1 id="通信图"><a href="#通信图" class="headerlink" title="通信图"></a>通信图</h1><h1 id="构件图"><a href="#构件图" class="headerlink" title="构件图"></a>构件图</h1><h1 id="部署图"><a href="#部署图" class="headerlink" title="部署图"></a>部署图</h1><h1 id="复合结构图"><a href="#复合结构图" class="headerlink" title="复合结构图"></a>复合结构图</h1>
           
         
       
@@ -1852,7 +1879,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">21</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1920,7 +1947,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">17</span>
+                      
+                    
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -2503,9 +2532,9 @@
   
     
       
-        
-      
     
+      
+        
       
     
       
